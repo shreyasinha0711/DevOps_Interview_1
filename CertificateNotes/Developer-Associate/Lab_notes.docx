@@ -1,0 +1,15 @@
+•	Create S3--> Object Ownership (Bucket owner preferred (bucket-owner-full-control), Object writer)--> ACL enabled
+•	Whenever we update anything in CloudFront distribution, it get deployed to reflect the changes.
+•	403 error comes when we block the country.
+•	Created 2 origins s3 and ec2 Added both and create an origin group and added this in behaviours.
+•	Spot instances creation purchase option  Request spot (Spot Request section has spot details)
+•	When you create Network Interface you need the subnet id of the ec2 instance present in and sg with HTTP rule
+•	Multiples IPs on ec2
+Network Interface  attachec2 elastic IP allocate IP
+Associate elastic IP Network Interface
+In ec2, 2 private IPs are visible, in network interface, public IPv4 works in browser.
+•	Creating and Subscribing to SNS Topics, Adding SNS event for S3 bucket
+•	Added s3 SNS event, Created topic in SNS and add s3 ARN and SNS ARN with permission to access policy.
+•	Using AWS S3 to Store ELB Access Logs  go to load balancer action Edit attribute ELB logs (Enable) create s3 folder
+
+
