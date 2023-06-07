@@ -1,0 +1,148 @@
+PRACTICE – 1
+
+https://github.com/dgkanatsios/CKAD-exercises
+	
+	c.pod_design
+•	use a temp busybox image to wget its nginx pod ip
+	kubectl run busybox --image=busybox --rm -it --restart=Never --   wget -O- 10.1.1.131:80
+•	Create a busybox pod that echoes 'hello world' and then exits
+	kubectl run busybox --image=busybox -it --restart=Never -- echo 'hello world'   (--restart flag is not set then, it is crashing)
+•	Get a label ‘app’ for the pods (show a column with APP labels)
+kubectl get po -L app
+# or
+kubectl get po --label-columns=app
+•	Remove the ‘app’ label from the pods we have created before
+kubectl label po nginx1 nginx2 nginx3 app-
+•	Check the details of the fourth revision (number 4)
+kubectl rollout history deploy nginx --revision=4
+
+•	Autoscale the deployment, pods between 5 and 10, targeting CPU utilization at 80%
+
+	kubectl autoscale deploy nginx --min=5 --max=10 --cpu-percent=80
+
+	kubectl get hpa nginx
+•	Implement canary deployment by running two instances of nginx marked as version=v1 and version=v2 so that the load is balanced at 75%-25% ratio
+•	Job : spec.activeDeadlineSeconds, spec.completions, .spec.parallelism, .spec.backoffLimit
+d.configuration.md
+•	Get the value of mysecret2
+kubectl get secret mysecret2 -o yaml
+echo -n YWRtaW4= | base64 -d
+•	Create an nginx deployment of 2 replicas, expose it via a ClusterIP service on port 80. Create a NetworkPolicy so that only pods with labels 'access: granted' can access the deployment and apply it
+kubectl run busybox --image=busybox --rm -it --restart=Never -- wget -O- http://nginx:80 --timeout 2      
+                    # This should not work. --timeout is optional here. But it helps to get answer more quickly (in seconds vs minutes)
+
+kubectl run busybox --image=busybox --rm -it --restart=Never --labels=access=granted -- wget -O- http://nginx:80 --timeout 2       # This should be fine
+
+•	Create a busybox pod with 'sleep 3600' as arguments. Copy '/etc/passwd' from the pod to your local folder
+	kubectl run busybox --image=busybox --restart=Never -- sleep 3600
+	kubectl cp busybox:etc/passwd ./passwd
+
+
+PRACTICE – 2
+https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552
+
+
+•	List all the pods showing name and namespace with a json path expression
+	kubectl get pods -o=jsonpath="{.items[*]['metadata.name', 'metadata.namespace']}"
+•	Check the Image version without the describe command
+	kubectl get po nginx -o jsonpath='{.spec.containers[].image}{"\n"}'
+
+•	 Create a busybox pod and echo message ‘How are you’ and have it deleted immediately
+// notice the --rm flag
+kubectl run busybox --image=nginx --restart=Never -it --rm -- echo "How are you"
+
+•	Get the pods with labels env=dev and env=prod
+kubectl get pods -l 'env in (dev,prod)'
+
+•	Remove all the pods that we created so far
+
+kubectl delete po –all
+
+•	See the userid and groupid in pod
+
+kubectl exec -it secbusybox -- sh
+id // it will show the id and group
+
+•	List all the events sorted by timestamp and put them into file.log and verify
+
+kubectl get events --sort-by=.metadata.creationTimestamp
+
+•	Check what all are the options that we can configure with readiness and liveness probes
+
+kubectl explain Pod.spec.containers.livenessProbe
+kubectl explain Pod.spec.containers.readinessProbe
+
+•	Create service account and token for the service account
+
+Kubectl create sa dashboard-sa
+Kubectl create token dashboard-sa	
+
+•	Tried to delete pvc which is attached to pod, it gets stuck as it is being used by the pod , then delete the pod, pvc will get deleted.
+
+•	Network policy ingress port is port of service
+
+•	Blue Green Deployment: Deployment labels version: v1 and v2, selector: matchLabels: version: v1 and v2. For service spec: selector: version: v1 and v2
+
+•	Canary Deployment: 
+
+Route traffic to both versions
+Route small traffic percentage to v2  (ex: replicas : 4 and 1) 
+How to achieve both scenarios
+
+Deployment labels version: v1 and v2
+Let’s create a common label selector: matchLabels: app: front-end 
+For service spec: selector: app: front-end
+
+
+
+KILLERCODA
+
+VIM SETUP
+
+	vim ~/.vimrc
+	
+	set expandtab
+	set tabstop=2
+	set shiftwidth=2
+
+•	How to connect to and work on other hosts:
+	ssh <nodename>
+
+•	Kubectl context
+•	k config get-contexts > /root/contexts
+•	switch context to purple
+k config use-context purple
+
+•	always check the service selector with pod labels
+•	in network policy -to and -port in same line is or condition
+-to and port at (podSelector/namespaceSelector level) is and condition
+
+•	Add label to added label pod prod=env
+K label pod -l prod=env newlabel=new
+
+Env for single or multiple cm or secrets
+envFrom for all secrets without any name(as it is)
+
+Admission-controller path /etc/Kubernetes/manifests/kube-apiserver.yaml
+Kubeconfig /root/.kube/config
+
+For helm set values: when we pull chart
+helm pull –untar bitnami/apache
+ls
+vi values.yaml
+edit the file
+helm install mywebapp .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
