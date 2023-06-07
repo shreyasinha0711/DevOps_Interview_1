@@ -1,0 +1,284 @@
+AWS CLOUDFRONT
+
+•	Custom Origin (HTTP) – ALB, EC2, S3 Website, Any HTTP backend
+•	Cache based on Headers, Session Cookies, Query String Parameters 
+•	You can invalidate part of the cache using the CreateInvalidation API 
+•	CloudFront signed URL have key-pair which only created by root account
+•	Two types of signers: Either a trusted key group, CloudFront Key Pair
+•	The private key is used by your applications (e.g., EC2) to sign URLs 
+•	The public key (uploaded) is used by CloudFront to verify URLs. 
+
+AWS CONTAINER
+
+•	Each EC2 Instance must run the ECS Agent to register in the ECS Cluster 
+•	ECS Cluster Capacity Provider 
+•	Used to automatically provision and scale the infrastructure for your ECSTasks 
+•	Capacity Provider paired with an Auto Scaling Group 
+•	Add EC2 Instances when you’re missing capacity (CPU, RAM...)
+•	For Dynamic Port mapping, you must allow on the EC2 instance’s Security Group any port from the ALB’s Security Group 
+•	For Farget, each task has a unique private IP, only define the container port (host port is not applicable)
+•	ECS – Environment Variables 
+•	Hardcoded – e.g., URLs
+•	 SSM Parameter Store – sensitive variables (e.g., API keys, shared configs)
+•	 Secrets Manager – sensitive variables (e.g., DB passwords) 
+•	Environment Files (bulk) – Amazon S3 
+•	Share data between multiple containers in the same Task Definition  - Bind Mounts. Works for both EC2 and Fargate tasks 
+•	EC2 Tasks – using EC2 instance storage. Data are tied to the lifecycle of the EC2 instance 
+•	Fargate Tasks – using ephemeral storage. Data are tied to the container(s) using them 
+•	When Amazon ECS places a task, it uses the following process to select the appropriate EC2 Container instance: 
+•	Identify which instances that satisfy the CPU, memory, and port requirementsTask Placement Constraints  Task Placement Strategies Select the instances 
+•	There are 2 types of tier Web Server Tier (ELB), Worker Tier (Scale based on the number of SQS messages, Can push messages to SQS queue from another Web Server Tier
+•	Canary Testing : New application version is deployed to a temporary ASG with the same capacity. A small % of traffic is sent to the temporary ASG for a configurable amount of time Deployment health is monitored If there’s a deployment failure, this triggers an automated rollback (very quick). No application downtime 
+AWS BEANSTACK
+•	Beanstalk in Single Docker Container does not use ECS 
+•	For multi container, Dockerrun.aws.json(v2) is used to generate the ECS task definition
+•	Custom Image is to tweak an existing Beanstalk Platform (Python, Node.js, Java...) 
+•	Custom Platform is to create an entirely new Beanstalk Platform 
+AWS CICD
+Cross-account Access
+•     Do NOT share your SSH keys or your AWS credentials
+•     Use an IAM Role in your AWS account and use AWS STS (AssumeRole API) 
+•	Code Build Source – CodeCommit, S3, Bitbucket, GitHub
+•	Build instructions: Code file buildspec.yml or insert manually in Console
+•	Output logs can be stored in Amazon S3 & CloudWatch Logs
+•	Use CloudWatch Metrics to monitor build statistics
+•	Use CloudWatch Events to detect failed builds and trigger notifications
+•	Use CloudWatch Alarms to notify if you need “thresholds” for failures 
+•	Cache the dependencies to S3 for future build speedup
+•	CodeBuild phases: installpre_buildbuildpost_build
+•	ELB, ALB is used for blue green deployment
+•	If a roll back happens, CodeDeploy redeploys the last known good revision as a new deployment (not a restored version)
+•	CodeStar Ability to integrate with Cloud9 to obtain a web IDE (not all regions) 
+•	 AWS Code Artifact : artifact management for software development
+•	AWS CodeGuru: An ML-powered service for automated code reviews and application performance recommendations 
+•	CodeGuru Reviewer: automated code reviews for static code analysis (development)
+•	Identify critical issues, security vulnerabilities, and hard-to-find bugs 
+•	Hard-learned lessons across millions of code reviews on 1000s of open-source and Amazon repositories 
+•	Supports Java and Python 
+•	Integrates with GitHub, Bitbucket, and AWS CodeCommit 
+•	CodeGuru Profiler: visibility/recommendations about application performance during runtime (production)
+•	Identify and remove code inefficiencies 
+•	Improve application performance(e.g.,reduceCPU utilization) 
+•	Decrease compute costs 
+•	Provides heap summary (identify which objects using 
+•	up memory)
+•	Anomaly Detection 
+•	 Support applications running on AWS or on- premise 
+
+AWS MONITORING
+•	CPU (active, guest, idle, system, user, steal)
+•	Disk metrics (free, used, total), Disk IO (writes, reads, bytes, iops)
+•	RAM (free, inactive, used, total, cached)
+•	Netstat (number of TCP and UDP connections, net packets, bytes)
+•	Processes (total, dead, bloqued, idle, running, sleep)
+•	Swap Space (free, used, used %) 
+•	X-Ray compatibility – lambda, beanstalk, ECS, ELB, API Gateway, EC2 Instances, microservices
+•	For X-Ray, Ensure the EC2 IAM Role has the proper permissions 
+•	Ensure the EC2 instance is running the X-Ray Daemon 
+•	Instrumentation means the measure of product’s performance, diagnose errors, and to write trace information. 
+•	To instrument your application code, you use the X-Ray SDK 
+•	Segments: each application / service will send them
+•	Subsegments: if you need more details in your segment
+•	Trace: segments collected together to form an end-to-end trace
+•	Sampling: decrease the amount of requests sent to X-Ray, reduce cost
+•	Annotations: Key Value pairs used to index traces and use with filters
+•	Metadata: Key Value pairs, not indexed, not used for searching 
+•	Sampling Rule : By default, the X-Ray SDK records the first request each second, and five percent of any additional requests. 
+•	One request per second is the reservoir, which ensures that at least one trace is recorded each second as long the service is serving requests. 
+•	Five percent is the rate at which additional requests beyond the reservoir size are sampled. 
+•	You can run the daemon by setting an option in the Elastic Beanstalk console or with a configuration file (in .ebextensions/xray-daemon.config) 
+•	The X-Ray daemon is not provided for Multicontainer Docker 
+•	ECS + X-Ray integration, X-Ray container as Deamon or Side Car (ECS), Farget – Side Car
+•	Enable CloudTrail Insights to detect unusual activity in your account:
+•	inaccurate resource provisioning 
+•	hitting service limits
+•	Bursts of AWS IAM actions
+•	Gaps in periodic maintenance activity 
+•	CloudTrail Insights analyzes normal management events to create a baseline 
+•	And then continuously analyzes write events to detect unusual patterns 
+• Anomalies appear in the CloudTrail console
+• Event is sent to Amazon S3
+• An EventBridge event is generated (for automation needs)
+•	Events are stored for 90 days in CloudTrail, beyond that store in s3. 
+AWS Messaging
+•	If you specify the same value of MessageGroupID in an SQS FIFO queue, 
+•	you can only have one consumer, and all the messages are in order
+•	To get ordering at the level of a subset of messages, specify different values for MessageGroupID 
+•	Messages that share a common Message Group ID will be in order within the group Each Group ID can have a different consumer (parallel processing!)
+Ordering across groups is not guaranteed.
+•	LongPolling decreases the number of API calls made to SQS while increasing the efficiency and latency of your application. 
+•	Long polling can be enabled at the queue level or at the API level using WaitTimeSeconds 
+•	 
+•	MaxNumberOfMessages: default 1, max 10 (for ReceiveMessage API) 
+•	ReceiveMessageWaitTimeSeconds: Long Polling
+Kinesis Data Streams – Capacity Modes 
+•	Provisioned mode:
+•	Each shard gets 1MB/s in (or 1000 records per second) and 2MB/s out (classic or enhanced fan-out consumer) 
+•	On-demand mode: 
+•	Default capacity provisioned (4 MB/s in or 4000 records per second)
+•	Kinesis Fan-out Consumer – GetRecordApi (pull), Enhanced Fan-out Consumer subscribeToShard and push based
+•	 Kinesis Client Library can run on EC2, Beanstalk, On-premises
+•	SNS:
+•	Direct Publish for mobile apps Google GCM, Apple APNS, Amazon ADM,
+•	SNS to Amazon S3 through Kinesis Data Firehose 
+AWS LAMBDA
+•	Lambda@Edge can also generate responses to viewers without ever sending the request to the origin.
+•	Lambda Synchronous: CLI, SDK, Elastic Load Balancing (Application Load Balancer), Amazon API Gateway, Amazon CloudFront (Lambda@Edge), Amazon S3 Batch
+•	Service Invoked: Amazon Cognito, AWS Step Functions 
+•	Results is returned right away
+•	Error handling must happen client side (retries, exponential backoff, etc...)
+•	Lambda – Asynchronous:  S3, SNS, CW Events/EventBridge, CodeCommit (CodeCommit Trigger : new branch, new tag, new push), CodePipeline (invoke a Lambda function during the pipeline, Lambda must callback), CloudWatch Logs (log processing), Simple Email Service, CloudFormation
+Lambda – Event Source Mapping 
+•	Kinesis Data Streams, SQS & SQS FIFO queue, DynamoDB Streams 
+•	An event source mapping creates an iterator for each shard, processes items in order 
+•	You can process multiple batches in parallel up to 10 batches per shard
+•	By default, if your function returns an error, the entire batch is reprocessed until the function succeeds, or the items in the batch expire. 
+•	Event Source Mapping will poll SQS (Long Polling), batch size (1-10 msg),  
+•	Set the queue visibility timeout to 6x the timeout of your Lambda function 
+Lambda Event Mapper Scaling 
+•	Kinesis Data Streams & DynamoDB Streams:
+•	One Lambda invocation per stream shard
+•	If you use parallelization, up to 10 batches processed per shard simultaneously 
+•	SQS Standard:
+•	Lambda adds 60 more instances per minute to scale up
+•	Up to 1000 batches of messages processed simultaneously 
+•	SQS FIFO: 
+•	Messages with the same GroupID will be processed in order 
+•	The Lambda function scales to the number of active message groups 
+Sample managed policies for Lambda:
+•	AWSLambdaBasicExecutionRole – Upload logs to CloudWatch.
+•	AWSLambdaKinesisExecutionRole – Read from Kinesis
+•	AWSLambdaDynamoDBExecutionRole – Read from DynamoDB Stream
+•	AWSLambdaSQSQueueExecutionRole – Read from SQS
+•	AWSLambdaVPCAccessExecutionRole – Deploy Lambda function in VPC
+•	AWSXRayDaemonWriteAccess – Upload trace data to X-Ray. 
+CloudWatch Metrics: 
+•	Invocations, Durations, Concurrent Executions 
+•	Error count, Success Rates,Throttles 
+•	Async Delivery Failures 
+•	Iterator Age (Kinesis & DynamoDB Streams) 
+•	If synchronous invocation => return ThrottleError – 429
+•	If asynchronous invocation => retry automatically and then go to DLQ 
+Lambda Function Dependencies 
+•	Upload the zip straight to Lambda if less than 50MB, else to S3 first 
+•	In cloudformation, Inline functions are very simple, You cannot include function dependencies with inline functions 
+•	If you update the code in S3, but don’t update S3Bucket, S3Key or S3ObjectVersion, CloudFormation won’t update your function 
+Lambda Container Images 
+•	Deploy Lambda function as container images of up to 10GB from ECR
+•	Can create your own image as long as it implements the Lambda Runtime API
+•	Test the containers locally using the Lambda Runtime Interface Emulator
+
+AWS DYNAMODB
+•	In Provisioned(default) and On-Demand mode ,You can switch between different modes once every 24 hours.
+•	Strongly Consistent Read, Set “ConsistentRead” parameter to True 
+•	If we exceed provisioned RCUs or WCUs, we get “ProvisionedThroughputExceededException” , If RCU issue, we can use DAX
+•	
+•	Writing Data to Dynamodb PutItem, Conditional Writes, UpdateItem Edits an existing item’s attributes or adds a new item if it doesn’t exist. Can be used to implement Atomic Counters – a numeric attribute that’s unconditionally incremented 
+•	Reading Data to Dynamodb GetItem (Eventual Consistent Read-default), ProjectionExpression can be specified to retrieve only certain attributes 
+Query returns items based on: 
+•	KeyConditionExpression
+•	Partition Key value (must be = operator) – required
+•	SortKeyvalue(=,<,<=,>,>=,Between,Beginswith)–optional 
+•	FilterExpression
+•	Additional filtering after the Query operation (before data returned to you)
+•	Use only with non-key attributes (does not allow HASH or RANGE attributes)
+•	BatchWriteItem
+•	Up to 25 PutItem and/or DeleteItem in one call
+•	Up to 16 MB of data written,up to 400 KB of data per item • Can’t update items (use UpdateItem)
+•	 BatchGetItem
+•	Return items from one or more tables 
+•	Up to 100 items,up to 16 MB of data
+•	Items are retrieved in parallel to minimize latency
+•	LSI -Alternative Sort Key, GSI – Alternative Partition Key
+•	If the writes are throttled on the GSI, then the main table will be throttled!, Even if the WCU on the main tables are fine
+•	Ability to choose the information that will be written to the Dynamodb stream:
+•	KEYS_ONLY – only the key attributes of the modified item 
+•	NEW_IMAGE – the entire item, as it appears after it was modified
+•	OLD_IMAGE – the entire item, as it appeared before it was modified
+•	NEW_AND_OLD_IMAGES – both the new and the old images of the item 
+
+API GATEWAY
+Caching Api Response default TTL is 300 sec max 3600 secs and cache is defined per stage.
+API Gateway – CloudWatch Metrics 
+•	Metrics are by stage, Possibility to enable detailed metrics 
+•	CacheHitCount & CacheMissCount: efficiency of the cache 
+•	Count:The total number API requests in a given period. 
+•	IntegrationLatency:The time between when API Gateway relays a request to the backend and when it receives a response from the backend. 
+•	Latency:The time between when API Gateway receives a request from a client and when it returns a response to the client. The latency includes the integration latency and other API Gateway overhead. 
+•	4XXError (client-side) & 5XXError (server-side)
+AWS SAM
+•	Sam package, sam deploy
+•	Build the app locally (sam build) package the appdeploy the app to cloud
+•	Sam template cloudformation template s3 cloudformation stack
+•	AWS Toolkits: IDE plugins which allows you to build, test, debug, deploy, and invoke Lambda functions built using AWS SAM
+•	SAM is for Serverless but CDK is for all service in Java,Python, JS, TS 
+
+AWS COGNITO
+Cognito User Pools:
+•	Sign in functionality for app users
+•	Integrate with API Gateway & Application Load Balancer
+•	MFA 
+•	Login sends back a JSON Web Token (JWT) 
+•	Cognito has a hosted authentication UI that you can add to your app to handle sign- up and sign-in workflows OIDC or SAML 
+Cognito Identity Pools (Federated Identity):
+•	Provide AWS credentials to users so they can access AWS resources directly
+•	Integrate with Cognito User Pools as an identity provider
+•	Users can login through Public Social, OIDC, SAML & Cognito User Pools
+•	Users can be unauthenticated (guests)
+•	CUP + CIP = manage user / password + access AWS services 
+•	To configure many AWS services, you must pass an IAM role (iam:PassRole )to the service (this happens only once during setup) 
+•	Roles can only be passed to what their trust allows
+AWS SECURITY
+Symmetric (AES-256 keys)
+•	single encryption key that is used to Encrypt and Decrypt 
+•	AWS services that are integrated with KMS use Symmetric CMKs
+•	Necessary for envelope encryption
+Asymmetric (RSA & ECC key pairs) 
+•	Used for Encrypt/Decrypt, or Sign/Verify operations 
+•	Use case: encryption outside of AWS by users who can’t call the KMS API 
+•	Three types of Customer Master Keys (CMK):
+• AWS Managed Service Default CMK: free
+• User Keys created in KMS: $1 / month
+• User Keys imported (must be 256-bit symmetric key): $1 / month
+ 
+•	Anything over 4 KB of data that needs to be encrypted must use the Envelope Encryption == GenerateDataKey API 
+•	GenerateDataKey API Send Plaintext data key Encrypt Data Key with CMK, Send encrypted data key
+Encryption SDK - Feature - Data Key Caching:
+•	Re-use data keys instead of creating new ones for each encryption 
+•	Helps with reducing the number of calls to KMS with a security trade-off
+•	Use LocalCryptoMaterialsCache (max age, max bytes, max number of messages)
+
+•	You can request a KMS Request Quotas increase through API or AWS support.
+•	SSE-KMS leverages the GenerateDataKey & Decrypt KMS API calls
+•	These KMS API calls will show up in CloudTrail, helpful for logging 
+•	To force SSL, create an S3 bucket policy with a DENY on the condition aws:SecureTransport = false 
+•	Using an allow on aws:SecureTransport = true would allow anonymous GetObject if using SSL 
+•	Force Encryption of SSE-KMS aws:kms (== SSE-KMS) and Null (s3:x-amz-server-side-encryption”: true)
+•	Secrets Manager ($$$):
+•	Automatic rotation of secrets with AWS Lambda 
+•	Lambda function is provided for RDS, Redshift, DocumentDB
+•	KMS encryption is mandatory
+Can integration with CloudFormation 
+•	SSM Parameter Store ($): 
+•	Simple API 
+•	No secret rotation (can enable rotation using Lambda triggered by CW Events) 
+•	KMS encryption is optional
+•	Can integration with CloudFormation
+•	Can pull a Secrets Manager secret using the SSM Parameter Store API
+•	CloudWatch Logs – Encryption
+•	You can encrypt CloudWatch logs with KMS keys 
+•	Encryption is enabled at the log group level, by associating a CMK with a log group, either when you create the log group or after it exists. (only CLI)
+•	You must use the CloudWatch Logs API:
+•	associate-kms-key : if the log group already exists 
+•	create-log-group: if the log group doesn’t exist yet 
+ 
+
+
+ 
+
+
+
+
+ 
+
+
