@@ -1,0 +1,870 @@
+AWS DEVELOPER ASSOCIATE
+
+WHIZLAB FREE TEST
+
+•	Using AWS SAM templates to deploy a serverless application. Resource for nested applications from Amazon S3 buckets? AWS::Serverless::Application resource in AWS SAM template is used to embed application from Amazon S3 buckets.
+AWS::Serverless::API is used for creating API Gateway resources methods that can be invoked through HTTPS endpoints.
+AWS::Serverless::LayerVersion resource type creates Lambda layered function.
+
+•	Source  Build  Staging. Build step failed then what will happen: The entire process with halt.
+
+•	Developed a new version of an existing web-based application hosted in AWS. Currently, Route 53 is being used to point the company’s DNS name to the web site. Your Management has instructed you to deliver the new application to a portion of the users for testing. How can you achieve this? Use Route 53 weighted Routing policies. Weighted routing lets you associate multiple resources with a single domain name (example.com) or subdomain name (acme.example.com) and choose how much traffic is routed to each resource. This can be useful for various purposes, including load balancing and testing new versions of software.
+
+•	When you use the AWS Elastic Beanstalk console to deploy a new application or an application version, you'll need to upload a source bundle. Your source bundle must meet the following requirements. Consist of a single ZIP file or WAR file (you can include multiple WAR files inside your ZIP file). Not exceed 512 MB. Not include a parent folder or top-level directory (subdirectories are fine). If you want to deploy a worker application that processes periodic background tasks, your application source bundle must also include a cron.yaml file.
+
+•	True for strongly consistent read requests from an application to a DynamoDB with a DAX cluster? DAX Cluster pass all request to DynamoDB does not cache for these requests.
+
+•	Your team lead has finished creating a build project in the console using AWS CodeBuild. You have access to run the build but no access to the project. You want to specify a different source location for the build. 
+
+Run the AWS CLI create-project or update-project command, setting the buildspec value to the path to the alternate build spec file relative to the value of the built-in environment variable CODEBUILD_SRC_DIR. You can also do the equivalent with the create project operation in the AWS SDKs.
+
+Run the AWS CLI start-build command, setting the buildspecOverride value to the path to the alternate build spec file relative to the value of the built-in environment variable CODEBUILD_SRC_DIR. You can also do the equivalent with the start build operation in the AWS SDKs.
+
+•	You are developing an application that is working with a DynamoDB table. During the development phase, calculate Consumed capacity is being used for the queries being fired. 
+By default, a Query operation does not return any data on how much read capacity it consumes. However, you can specify the ReturnConsumedCapacity <> parameter in a Query request to obtain this information. 
+NONE—no consumed capacity data is returned. (This is the default).
+TOTAL—the response includes the aggregate number of read capacity units consumed.
+INDEXES—the response shows the aggregate number of read capacity units consumed, together with the consumed capacity for each table and index that was accessed.
+
+WHIZLAB TEST-1
+
+•	The service should capture the number of logged-in users and trigger events accordingly. During peak times, monitoring frequency will occur every 10 seconds.  Create a high-resolution custom Amazon CloudWatch metric. 
+When creating an alarm, select a greater than or equal period to the frequency of the metric to be monitored. For example, basic monitoring for Amazon EC2 provides metrics for your instances every 5 minutes. When setting the alarm on a basic monitoring metric, select a period of at least 300 seconds (5 minutes). Detailed monitoring for Amazon EC2 provides metrics for your instances every 1 minute. When setting the alarm on a detailed monitoring metric, select a period of at least 60 seconds (1 minute). If you set the alarm on a high-resolution metric, you can specify a high-resolution alarm with a period of 10 seconds or 30 seconds, or you can set a regular alarm with a period of any multiple of 60 seconds.
+
+•	In-memory Memcached feature: Simple caching model, Multithreaded performance with utilization of multiple cores Elasticache feature: Pub/Sub capability Support, Data replication to multiple AZ’s. Data persistence
+
+•	Microsoft SQL, encrypting some of the data using Transparent Data Encryption. Amazon RDS supports using Transparent Data Encryption (TDE) to encrypt stored data on your DB instances running Microsoft SQL Server. TDE automatically encrypts data before it is written to storage and automatically decrypts data when the data is read from storage.
+
+•	deployment methods to create new instances and deploy code to those instances. Which methods will deploy code only to new instances? Immutable, Blue/green
+
+•	As an API developer, you control the behaviors of your API's frontend interactions by configuring the method request and a method response. You control the behaviors of your API's backend interactions by setting up the integration request and integration response. These involve data mappings between a method and its corresponding integration.
+
+•	First, the data is encrypted using a plaintext Data Key. The Data Key is then further encrypted using a plaintext Master Key. This plaintext Master key is securely stored in AWS KMS known as Customer Master Keys.
+
+•	Which of the following keys can be used to encrypt the DynamoDB data at rest? Encryption at rest protects your DynamoDB tables under an AWS KMS key. By default, DynamoDB uses an AWS owned key, a multi-tenant encryption key that is created and managed in a DynamoDB service account. But you can encrypt your DynamoDB tables under a customer managed key or the AWS managed key for DynamoDB.
+
+•	Your company is going to develop an application in .NET Core with DynamoDB. There is a requirement that all data needs to be encrypted at rest. If the DynamoDB table has already been created, what else is needed to achieve this? A. No additional configurations are required since server-side encryption is enabled on all DynamoDB table data.
+
+•	The lambda functions have gone through multiple code revisions, and versioning in Lambda is being used to maintain the revisions. Which of the following must be done to ensure that the right version of the function is deployed in AWS CodeDeploy? If your application uses the AWS Lambda compute platform, the AppSpec file can be formatted with either YAML or JSON. It can also be typed directly into an editor in the console. The AppSpec file is used to specify. The AWS lambda function version to deploy. The functions to be used as validation tests.
+
+•	For gaming application ensure leaderboards can be maintained accurately in the application? AWS ElastiCache – Redis sorted sets move the computational complexity associated with leaderboards from your application to your Redis cluster.
+
+•	Elastic Load Balancing provides access logs that capture detailed information about requests sent to your load balancer. Each log contains information such as the time the request was received, the client's IP address, latencies, request paths, and server responses. You can use these access logs to analyze traffic patterns and troubleshoot issues.
+
+•	Retag specific Docker images so that only those images can be used for new project deployment. Use the --image-tag option of the put-image command.
+
+•	Existing application versions need to be upgraded to a new version separately in a group of EC2 instances without any degradation of the capacity during deployment. None of the Amazon EC2 instances should be replaced during this upgrade. Rolling with additional batch deployment a new batch of the Amazon EC2 instance is launched before taking a batch of instances out of service for deploying a new version. Once all Amazon EC2 instances are upgraded to a new version of the application, this additional batch of Amazon EC2 instances is terminated. This will ensure full capacity during deployment.
+
+•	You’ve currently been tasked to migrate an existing on-premises web application into Elastic Beanstalk You can’t find any relevant AMIs in the beanstalk service that would be suitable to host your application. Consider using Packer to create a custom platform
+
+•	When a Lambda Alias ARN is used in the notification configuration a new version of the Lambda function is created, you need to update Alias ARN pointing to the new version of the function. No changes are required to be done at the Amazon S3 bucket.
+
+•	A Publish version is a snapshot copy of a Lambda Function code configuration in $LATEST version. No configuration changes can be done to a published version it has a unique ARN which can’t be modified.
+
+•	You have been instructed to manage the deployments of an application onto Elastic Beanstalk. Since this is just a development environment, you have been told to ensure that the least amount of time is taken for each deployment. All at once
+
+•	A stage variable can be used as part of an HTTP integration URL, as shown in the following examples:
+A full URI without protocol – http://${stageVariables.<variable_name>}
+A full domain – http://${stageVariables.<variable_name>}/resource/operation
+A subdomain – http://${stageVariables.<variable_name>}.example.com/resource/operation
+A path – http://example.com/${stageVariables.<variable_name>}/bar
+A query string – http://example.com/foo?q=${stageVariables.<variable_name>}
+
+
+WHIZLAB TEST-2
+
+•	AWS CodeDeploy hooks : ApplicationStopDownloadBundleBeforeInstallInstallAfterInstallApplicationStartValidateService
+
+•	The function will be developed in .Net. Several external libraries are needed for the code to run. Which of the following is the best practice when it comes to working with external dependencies for AWS Lambda? Minimize your deployment package size to its runtime necessities. This will reduce the amount of time it takes for your deployment package to be downloaded and unpacked ahead of invocation. For functions authored in Java or .NET Core, avoid uploading the entire AWS SDK library as part of your deployment package. Instead, selectively depend on the modules which pick up components of the SDK you need.
+
+•	Your team has a Code Commit repository in your account. You need to give developers in another account access to your Code Commit repository. Which of the following is the most effective way to grant access?
+
+You can configure access to AWS CodeCommit repositories for IAM users and groups in another AWS account. This is often referred to as cross-account access. This section provides examples and step-by-step instructions for configuring cross-account access for a repository named MySharedDemoRepo in the US East (Ohio) Region in an AWS account (referred to as AccountA) to IAM users who belong to an IAM group named DevelopersWithCrossAccountRepositoryAccess in another AWS account (referred to as Account B).
+
+•	 ~/xray-deamon$./xray -o command option can be used while running X-Ray daemon locally not on Amazon EC2 instance. This will skip checking Amazon EC2 instance metadata.
+•	Xray – t : bind a different TCP port for X-ray service, -b : UDP port
+
+•	For a custom AMI with custom platform samples using Packer, Source_ami in a Packer template depends on the flavour. This is a base operating system used to create a custom AMI. This can be one of the following: Amazon Linux AMI, ubuntu1604, rhel7, rhel6.
+The region in a Packer template should be the same as the region from which the AMI of the EC2 instance is copied.
+
+•	Data in Amazon Cognito needs to be further analyzed using Amazon Redshift. have How Amazon Cognito Events push events to Kinesis streams and get analyzed data using Amazon Redshift? You can select either existing Kinesis Stream or create a new Kinesis Stream to have Amazon Cognito Streams push all sync data to these streams. Apart from this, an IAM role is required to grant Amazon Cognito to put data events to these streams.
+
+•	The application is designed to perform scans on the entire table. How to improve the application's performance when it interacts with the DynamoDB table? Use parallel scans and use queries
+
+•	data sets need to be streamed directly into Amazon S3. Use Kinesis firehose
+
+•	A company currently allows access to their API’s to customers via the API gateway. Currently, all clients have a 6-month period to move from using the older API’s to newer versions of the API’s. The code for the API is hosted in AWS Lambda.
+
+The best way is to create a separate stage in the API gateway as maybe ‘v2’, and then customers could use both API versions. They can still slowly change their usage onto the new version in this duration.
+
+•	 Lambda function uses development environments such as Dev, QA, Staging. The lambda function needs to interact with multiple development environments. What is the best way to develop the Lambda function and dynamically pass settings to it?
+One lambda function with env variables and ALIAS is not the correct method to dynamically pass settings to a Lambda function.
+
+•	Create an API gateway stage that will directly interact with DynamoDB tables. With DynamoDB as the backend, the API developer sets up the integration request to forward the incoming method request to the chosen backend. The setup includes specifications of an appropriate DynamoDB action, required IAM role and policies, and required input data transformation. The backend returns the result to API Gateway as an integration response. To route the integration response to an appropriate method response (of a given HTTP status code) to the client, you can configure the integration response to map required response parameters from integration to method.
+
+•	AWS Lambda function to be used as a backend technology for an API gateway instance. You need to give the API gateway URL to a set of users for testing. What must be done before the users can test the API? In API Gateway, a deployment is represented by a Deployment resource. It is executable of an API by a RestAPI resource.
+
+•	Some of the aspects that get incorporated in the call to STS are
+
+The Amazon Resource Name (ARN) of the role that the app should assume. The duration, which specifies the duration of the temporary security credentials. A role session name, which is a string value that you can use to identify the session. This value can be captured and logged by CloudTrail to help you distinguish between your role users during an audit.
+
+•	read capacity of 5 and a write capacity of 5. 
+Perform strongly consistent reads of up to 20 KB per second (4 KB × 5 read capacity units). Perform eventually consistent reads of up to 40 KB per second (twice as much read throughput). Write up to 5 KB per second (1 KB × 5 write capacity units).
+
+•	This deployment will be done by a traffic-splitting deployment policy. Institute wants only 15 percent of the total traffic to be diverted to the new application 85 percent of traffic to the current version. A health check should be done every 300 seconds.
+The percentage of traffic to be diverted to the new version is specified in ‘NewVersionPercent’ while evaluation time is specified in the ‘EvaluationTime’ parameter. Use NewVersionPercent: "15" & EvaluationTime: "5"
+
+•	You have defined some custom policies in AWS. You need to test out the permissions assigned to those policies. Which of the following can be used for this purpose via the CLI? Evaluate the policies and return the list of context keys that they reference.
+Simulate the policies, providing a list of actions, resources, and context keys that are used during the simulation.
+•	DevOps Team is looking for the deployment of new serverless applications using the AWS SAM template. Since this application is tested deployed in other regions, clients need to quickly migrate all the traffic to the new version after initial testing.
+DeploymentPreference in a SAM template can be used to specify traffic shifting patterns. With the ‘DeploymentPreference’ parameter as Canary10Percent10Minutes, 10 percent of the traffic will be routed to the new version for 10 minutes. After 10 minutes 100 percent of traffic will be routed to the new version. 
+
+•	Java-based application that needs to make use of the AWS KMS service for encryption. Which of the following must be done for the encryption and decryption process? Use the generated data key to decrypt the data. Use the Customer master key to generate a data key for the encryption process.
+
+•	A change is being made to one of the Lambda functions ensuring that application traffic is shifted slowly from one Lambda function version to the other. Create and Update an ALIAS with the –routing-config parameter.
+
+•	An application needs to make use of an SQS queue for working with messages. An SQS queue has been created with the default settings. The application needs 60 seconds to process each message. If the SQS queue is created with the default settings, then the default visibility timeout is 30 seconds. And since the application needs more time for processing, you first need to change the timeout and delete the message after it is processed.
+
+•	For resources Amazon S3 buckets, Amazon SQS queues, Amazon SNS topics, or Amazon S3 Glacier vaults, resource-based policies can be tested using the IAM policy simulator. To test resource-based policies, resources must be included in the simulator resource policy needs to be selected for that resource.  You cannot type or copy a resource-based policy into the simulator.
+
+•	AWSEBDockerrunVersion: Version 2 for multi-container Docker environments.
+
+•	When multiple rules are assigned, rules are evaluated in a sequential order the IAM role for the first matching rule is used unless ‘CustomRoleArn” attribute is added to modify this sequence.
+
+•	AWS CodeDeploy generates “HEALTH_CONSTRAINTS_INVALID” error, when a minimum number of healthy instances defined in the deployment group are not available during deployment. To mitigate this error, make sure the required number of healthy instances are available during deployments. The number of instances should be less than or equal to the total number of instances.
+
+•	You have docker containers that are going to be deployed in the AWS Elastic Container Service. You need to ensure that the underlying EC2 instances hosting the containers cannot access each other (since containers may be used by different customers). How can you accomplish this? Configure the Security Groups of the instances to allow only required traffic.
+
+WHIZLAB TEST-3
+
+•	AWS CodeDeploy is used to configure a deployment group to automatically roll-back to the last known good revision when a deployment fails. During roll-back, files required for deployment to earlier revision cannot be retrieved by AWS CodeDeploy. During AWS CodeDeploy automatic roll-back, it will try to retrieve files that were part of previous versions. If these files are deleted or missing, you need to manually add those files to Instance or create a new application revision.
+
+•	The application uses a single thread to poll multiple queues Which of the following polling timeout will be the best option to avoid latency in processing messages? In the above case, the application is polling multiple queues with a single thread. Long polling will wait for a message or timeout values for each queue which may delay the processing of messages in other queues that have messages to be processed. So, use short polling with default timeout values.
+
+•	Your application is making requests to a DynamoDB table. Due to the certain surge of requests, you are now getting throttling errors in your application. Which of the following can be used to resolve such errors? Using exponential backoff in your requests can put some retries for your application to help with your surge of requests. Alternatively, you can increase the throughput capacity defined for your table. 
+
+•	Configuration changes need to be made to the environment. You have been told that the changes should not affect the current environment since downtime needs to be minimized. The code needs to be deployed only to the new instances. Immutable
+are an alternative to rolling updates where a temporary Auto Scaling group is launched outside of your environment with a separate set of instances running on the new configuration, which are placed behind your environment's load balancer. Old and new instances both serve traffic until the new instances pass health checks. The new instances are then moved into your environment's Auto Scaling group and the temporary group and old instances are terminated.
+
+•	You are working on building microservices using Amazon ECS. This ECS will be deployed in an Amazon EC2 instance along with its Amazon ECS container agent. After successfully launching the EC2 instance, the Amazon ECS container agent has registered this instance in a cluster. What would be the status of the container instance its corresponding agent connection when an ECS container instance is stopped? When an ECS container is stopped, the Container instance status remains Active, but the container Agent status changes to FALSE after a few minutes.
+
+•	You have created an Amazon DynamoDB table with Global Secondary Index. Which of the following can be used to get the latest results quickly with the least impact on RCU (Read Capacity Unit)? Global Secondary Index does not support Consistent read. It only supports Eventual Read. For other tables, Query with Consistent Read will provide the latest results without scanning the whole table.
+
+•	You’ve created a local Java-based Lambda function. You then package and upload the function to AWS. You try to run the function with the default settings. But the function does not run as expected. Which of the following could be the reasons for the issue? 
+
+Since the function is created with the default settings, the timeout for the function would be 3 seconds and the memory would default to 128 MB. For a Java-based function, this would be too little. Hence you need to ensure that the right settings are put in place for the function.
+
+•	Your team is currently working on source code that’s defined in a Subversion repository. The company has just started using AWS tools for their CI/CD process and has now mandated that source code be migrated to AWS CodeCommit. Which of the following steps would you perform to fulfill this requirement? You can migrate to AWS CodeCommit from other version control systems, such as Perforce, Subversion, or TFS, but you will have to migrate to Git first. Then Git to Code Commit.
+
+•	You are developing an application that is working with a DynamoDB table. You need to create a query that has search criteria. Which of the following must be done to work with search queries? To specify the search criteria, use a key condition expression—a string that determines the items to be read from the table or index. You must specify the partition key name and value as an equality condition.
+
+•	Use the Parameters section to take in values at runtime. You can then use the values of those parameters to define how the template gets executed.
+
+•	Application Load Balancers allow containers to use dynamic host port mapping (so that multiple tasks from the same service are allowed per container instance). It supports path-based routing and priority rules (so that multiple services can use the same listener port on a single Application Load Balancer). Network Load Balancers do support dynamic host port mapping.
+
+•	DAX is intended for applications that require high-performance reads. As a write-through cache, DAX allows you to issue writes directly so that your writes are immediately reflected in the item cache. You do not need to manage cache invalidation logic because DAX handles it for you. Option A is incorrect. Write Around Cache is generally useful when there is a considerable amount of data to be written to the database. In this case, data is directly written to DynamoDB instead of DAX. Option C is incorrect as Using Side Cache using Redis is eventually consistent and non-durable which may add additional delay. Option D is incorrect. As with Write Through cache using Redis, there are chances of missing data during new scaling out.
+
+•	Move an existing development environment on the AWS Cloud. This environment consists mainly of Docker-based containers. You need to ensure that minimum effort is taken during the migration process. The Elastic Beanstalk service is the ideal service to quickly provision development environments. You can also create environments that can be used to host Docker-based containers. Option A is incorrect since using Opswork is best suited when you have multiple stacks and want to use configuration tools for the environment.
+
+•	You have a set of developers that need to work with applications hosted on the Elastic Beanstalk environment. You need to ensure they can work with the beanstalk environments but not give them access to the AWS Console. 
+The EB CLI is a command-line interface for Elastic Beanstalk that provides interactive commands that simplify creating, updating and monitoring environments from a local repository. Use the EB CLI as part of your everyday development and testing cycle as an alternative to the AWS Management Console.
+
+•	You have been asked to deploy an application for development purposes onto an Elastic beanstalk environment. You need to ensure that custom software is installed on the backend Linux servers launched as part of the Elastic Beanstalk environment. Elastic Beanstalk supports two methods of saving configuration option settings. Configuration files in YAML or JSON format can be included in your application's source code in a directory named .ebextensions and deployed as part of your application source bundle. You create and manage configuration files locally.
+
+•	when you use a Jenkins build provider for your pipeline’s build or test action, install Jenkins on an Amazon EC2 instance and configure a separate EC2 instance profile. Make sure the instance profile grants Jenkins, only the AWS permissions required to perform tasks for your project, such as retrieving files from Amazon S3.
+
+•	You have been told to make use of Cloudformation templates for deploying applications on EC2 Instances. These Instances need to be preconfigured with the NGINX web server to host the application. 
+When you launch stacks, you can install and configure software applications on Amazon EC2 instances by using the cfn-init helper script and the AWS::CloudFormation::Init resource. By using AWS::CloudFormation::Init, you can describe the configurations that you want rather than scripting procedural steps.
+
+•	Canary: Traffic is shifted in two increments. You can choose from predefined canary options that specify the percentage of traffic shifted to your updated Lambda function version in the first increment and the interval, in minutes, before the remaining traffic is shifted in the second increment.
+•	Linear: Traffic is shifted in equal increments with an equal number of minutes between each increment. You can choose from predefined linear options that specify the percentage of traffic shifted in each increment and the number of minutes between each increment.
+
+•	Application needs to encrypt data using the KMS service. The company has already defined the customer master key in AWS for usage in the application. Which of the following steps must be followed in the encryption process? Use the GenerateDataKey to get the data key to encrypt the data. Delete the plaintext data encryption key after the data is encrypted.
+
+•	While enabling CORS on resources using API Gateway, for all responses apart from 200 responses of the OPTIONS method, we need to manually configure to return Access-Control-Allow-Origin' header with '*' or specific origins to fulfill pre-flight handshakes.
+
+•	Projection Expression is used to identify a specific attribute from a table instead of all items within a table during scan or query operation. Projection Expression can be created with Colour & Size instead of querying the full table in the above case.
+
+•	AWS CodePipeline includes several actions that help you configure build, test, and deploy resources for your automated release process. If your release process includes activities that are not included in the default actions, such as an internally developed build process or a test suite, you can create a custom action for that purpose and include it in your pipeline. You can use the AWS CLI to create custom actions in pipelines associated with your AWS account.
+
+•	Cache parameter groups are an easy way to manage runtime settings for supported engine software. Parameters are used to control memory usage, eviction policies, item sizes, and more. An ElastiCache parameter group is a named collection of engine-specific parameters that you can apply to a cluster. By doing this, you make sure that all of the nodes in that cluster are configured exactly in the same way.
+
+•	The write-through strategy adds data or updates data in the cache whenever data is written to the database. Data in cache is never stale.
+
+•	DynamoDB encryption is mandatory at the time of table creation itself and it is of two types. DEFAULT method using 'AWS owned key' and KMS method using ‘AWS managed Key’ CMK.
+
+WHIZLAB TEST-4
+
+•	A new application using Ruby programming language will be deploying on Amazon EC2 instance. This application needs to be quickly deployed & secure access needs to be provided to the team working on this new application. To quickly build & deploy applications on Amazon EC2 instances using Ruby programming language, AWS CodeStar Project templates can be used. These are pre-configured delivery toolchains for developing, building, testing & deploying projects on AWS service. AWS CodeStar Project templates support to develop application on various AWS services like Amazon EC2 instance, Amazon Elastic Beanstalk, AWS Lambda. Also, it supports various programming languages like Java, JavaScript, PHP, Ruby, and Python. AWS CodeStar Project templates provide built-in security access policies to control access to the team working on this new application.
+
+•	A new REST API using AWS Lambda proxy integration. How is the client API request sent to the backend AWS Lambda function? With Lambda proxy integration, the entire request received from the client is sent to the backend AWS Lambda function using ANY method. Actual HTTP method is received from the client which can be any of the HTTP methods like DELETE, GET, HEAD, OPTIONS, PATCH, POST, and PUT.
+
+•	Your company has a set of EC2 Instances and On-premise. They now want to automate the deployment of their applications using the AWS Code Deploy tool in AWS. Which of the following is not needed in this scenario? Ensure both EC2 Instances and On-premise servers have instance profiles attached to them.
+
+•	You are in charge of developing Cloudformation templates that would be used to deploy databases in different AWS Accounts. To ensure that the passwords for the database are passed in a secure manner, which of the following could you use with Cloudformation? Use Input Parameter, in all other case you need to hard code it
+
+•	Your team needs to develop an application that needs to make use of SQS queues. There is a requirement that when a message is added to the queue, the message is not visible for 5 minutes to consumers. Delay queue, To set delay seconds on individual message, rather than on an entire queue, use message timers to allow Amazon SQS to use the message timer's DelaySeconds value instead of the delay queue's DelaySeconds value.
+
+•	Your team has currently developed an application using Docker containers. As the development lead, you now need to host this application in AWS. You also need to ensure that the AWS service has orchestration services built-in. Which of the following can be used for this purpose? Use Elastic Container Service. Not EKS because more maintainance.
+
+•	Deploy an application using the Elastic Beanstalk service, ensure that a high-end instance type is used to deploy the underlying instances. Which of the following would you use to enable this? Use Launch Configuration to manage ASG, instance type, key pair etc. Use environment manifest file in root of your application source bundle.
+
+•	Your company has a bucket that has versioning and Encryption enabled. The bucket receives thousands of PUT operations per day. After 6 months, there are a significant number of HTTP 503 error codes that are being received. If you notice a significant increase in the number of HTTP 503-slow down responses received for Amazon S3 PUT or DELETE object requests to a bucket that has versioning enabled, you might have one or more objects in the bucket for which there are millions of versions. When you have objects with millions of versions, Amazon S3 automatically throttles requests to the bucket to protect the customer from an excessive amount of request traffic, which could potentially impede other requests made to the same bucket. To determine which S3 objects have millions of versions, use the Amazon S3 inventory tool. The inventory tool generates a report that provides a flat file list of the objects in a bucket.
+
+•	You’ve created a Code Commit Repository in AWS. You need to share the repository with the developers in your team. Which of the following would be a secure and easier way to share the repository with the development team? Git credentials are the easiest method for users of your repository to set up and use. SSH connections require your users to generate a public-private key pair, store the public key, associate the public key with their IAM user, configure their known hosts file on their local computer, and create and maintain a config file on their local computers. Because this is a more complex configuration process, we recommend you choose HTTPS and Git credentials for IAM user connections to AWS CodeCommit.
+
+•	Your development team requires a message to be consumed by multiple consumers in an application. You also need to ensure that the metadata can be sent along with the messages. Amazon SNS supports the delivery of message attributes which let you provide structured metadata items (such as timestamps, geospatial data, signatures, and identifiers) about the message. Each message can have up to 10 attributes.
+
+•	Lambda authorizers are Lambda functions that control access to your API methods using bearer token authentication as well as information described by headers, paths, query strings, stage variables, or context variables request parameters.
+
+•	Your team is looking towards uploading different versions of an application using the AWS Elastic Beanstalk. How can they achieve this in the easiest possible way? Elastic Beanstalk creates an application version whenever you upload source code. This usually occurs when you create an environment or upload and deploy code using the environment management console. Elastic Beanstalk deletes these application versions according to its life cycle policy and when you delete the application.
+
+•	you need to query a DynamoDB table with multiple Partition Key values at once and store the result in CSV format on S3. Query API does not support querying table using multiple Partition Key values. So, BatchGetItem API allows you to pass multiple Partition Key values in a single request.
+
+•	A web application is deployed in an Amazon EC2 instance with Amazon DynamoDB as a database. Only authenticated users accessing this application should be able to upload data to Amazon DynamoDB. All users need to be authenticated with an on-premises authentication server. Authenticate with a SAML-based identity provider and access AWS services with an Amazon Cognito identity pool. This is incorrect as the Amazon Cognito user pool is used for sign-in access for users to web applications & not to grant user access to AWS services.
+
+•	 To manage the deployment of its applications using Code Deploy. They want to automate the deployment of the Code Deploy environment itself. AWS CloudFormation is a service that helps you model and set up your AWS resources using templates. AWS::CodeDeploy::Application
+
+•	While choosing an Instance for your web application, which of the following features are available additionally with M5 instance in comparison with T2 instance? With M5 General-Purpose Instance, Elastic Network Adaptor is used to support Enhance Networking. Also, M5 General-Purpose Instance support network performance with 10 Gbps to 25 Gbps based upon instance type. T2 instance does not support Enhance Networking & support network performance only up to 1 Gbps.
+
+•	Your company currently has an S3 bucket hosted in an AWS Account. It holds information that needs to be accessed by a partner account. Which is the MOST secure way to allow the partner account to access the S3 bucket in your account? Ensure an IAM user is created which can be assumed by the partner account. is invalid because Roles are assumed and not IAM users. Ensure an IAM role is created which can be assumed by the partner account. Ensure the partner uses an external id when making the request. Provide the ARN for the role to the partner account.
+
+•	Your team has to change the configuration from Java7 to java8 and tomcat7 to tomcat8 an environment in Elastic beanstalk using the following configuration. Use AWS Console (configurationmodify)
+
+•	You have configured a Sampling Rule in AWS X-Ray, with a reservoir size as 60 a fixed rate at 20%. There are 200 requests per second matching the rule defined. How many requests will be sampled per second? Let us suppose that we specify a value for Reservoir Rate as 60 and Fixed Rate as 20. Now, if your application receives 200 requests in a second, then the total number of requests that would be traced or sampled will be: 
+"Reservoir Rate" + Fixed Rate % [(Total Requests - Reservoir Rate)]
+60+(200-60)*20% = 60+28 = 88
+
+•	Error: "The bucket you are attempting to access must be addressed using the specified endpoint..." When Running a Build. The bucket is not in the same region as the Code Build project.
+
+•	Your development team is planning on using AWS ElastiCache – Redis for their caching implementation. It needs to be ensured that data is only filled in the cache when it is required. Lazy Loading
+
+•	AWS Data Pipeline is a web service that you can use to automate data movement and transformation. EC2-->S3-->EMR
+
+•	Your program has inserted several rows in the table. You now need to read the data from the table and only retrieve certain attributes in the query. Which of the following would you use for this purpose? Projection Expression
+
+WHIZLAB TEST-5
+
+•	You are a developer for a company that is planning on using the AWS RDS service. Your Database administrator spins up a new MySQL RDS Instance in AWS. You now need to connect to that instance. Use the DescribeDBInstances API and get the endpoint for the database instance. Request an endpoint for the instance from the Database Administrator. Before you can connect to a DB instance running the MySQL database engine, you must create a DB instance. For information, see Creating a DB Instance Running the MySQL Database Engine. Once Amazon RDS provisions your DB instance, you can use any standard MySQL client application or utility to connect to the instance. In the connection string, you specify the DNS address from the DB instance endpoint as the host parameter and specify the port number from the DB instance endpoint as the port parameter.
+
+•	To debug performance issues for an existing application. The application connects to a MySQL RDS Instance in AWS. There is suspicion that there are performance issues in the underlying queries.  
+
+Error log: contains diagnostic messages generated by the database engine, along with startup and shutdown times.
+General query log: contains a record of all SQL statements received from clients and client connect and disconnect times.
+Slow query log: contains a record of SQL statements that took longer to execute than a set amount of time and that examined more than a defined number of rows. Both thresholds are configurable.
+
+•	An application that will make use of the ElastiCache service. You need to ensure that objects are cached but not kept inadvertently for a long time. Which of the following strategy would you employ for the cache service? Lazy loading allows for stale data but won't fail with empty nodes. Write through ensures that data is always fresh but may fail with empty nodes and may populate the cache with superfluous data. By adding a time to live (TTL) value to each write, we can enjoy the advantages of each strategy and largely avoid cluttering up the cache with superfluous data.
+
+•	An application using microservices. Docker containers will be used to build the application.  Lambda and ECS services can be used to deploy the Docker containers.
+
+AWS Lambda is a serverless service and supports Docker deployments. You can now package and deploy Lambda functions as container images of up to 10 GB in size. In this way, you can also easily build and deploy larger workloads that rely on sizable dependencies.
+
+•	You are working on creating lifecycle event hooks for an AWS Lambda deployment. The new version of the lambda function should be validated for seamless traffic migration to new AWS Lambda function version. 
+BeforeAllowTraffic: Hooks to run tasks before shifting traffic to the new Lambda function version. 
+AfterAllowTraffic: Hooks to run tasks after shifting traffic to the new Lambda function version. 
+Start, AllowTraffic & end cannot be scripted.
+
+•	Your team is using the AWS CodeBuild service for an application build. As part of Integration testing during the build phase, the application needs to access an RDS instance in a private subnet. Typically, resources in a VPC are not accessible by AWS CodeBuild. To enable access, you must provide additional VPC-specific configuration information as part of your AWS CodeBuild project configuration. This includes the VPC ID, the VPC subnet IDs, and the VPC security group IDs. VPC-enabled builds are then able to access resources inside your VPC.
+
+•	the X-Ray service is used to trace all incoming HTTP requests for an application being developed. In the X-Ray SDK which feature use to fulfill this requirement?
+
+Interceptors to add to your code to trace incoming HTTP requests.
+Client handlers to instrument AWS SDK clients that your application uses to call other AWS services.
+An HTTP client to use to instrument calls to other internal and external HTTP web services.
+
+•	You’re planning on using the data pipeline service to transfer data from Amazon S3 to Redshift. You need to define the source and destination locations. In AWS Data Pipeline, data node defines the location and type of data that a pipeline activity uses as input or output. 
+
+•	The default sign-in and sign-up features of the AWS Cognito service will be used. There is a security requirement to ensure that if the user’s credentials are compromised, then they would need to use a new password. Ensure to create a user pool in AWS Cognito. Ensure to “Block use” for compromised credentials in the Advanced Security section. Events are Sign-in, Sign-up, Password change
+
+•	You are working on a system that will use AWS Kinesis, and it is getting data from various log sources. You are looking at creating an initial number of shards for the Kinesis stream. Which of the following can be used to calculate the initial number of shards for the Kinesis stream?
+Number_of_shards=max(incoming_write_bandwidth_in_KiB/1024,outgoing_read_bandwidth_in_KiB / 2048)
+
+•	With DynamoDB table. At the design stage, find out the optimum way to define partition keys and secondary indexes. Which of the following are recommendations for defining secondary indexes? Consider projecting fewer attributes to the index. Avoid projecting attributes that would be rarely required.
+
+•	Your team plans to deliver content to users by using the CloudFront service and an S3 bucket as the source. You need to ensure that a custom value is placed for the amount of time the object is stored in the CloudFront cache. Configure your origin to add a 	Cache-Control or an Expires header field to each object. Specify a value for Minimum TTL in CloudFront cache behaviors. Use the default value of 24 hours.
+
+•	The sales team currently stores historical data in the cluster. There is now a requirement to ensure that all data is encrypted at rest. you can now enable encryption for an existing Redshift cluster and therefore creating a new Redshift cluster is unnecessary.
+
+•	An application is making calls to a DynamoDB table. The queries are taking on a lot of read capacity. The table has a large number of attributes. Not all of the attributes are used in the query. Which of the following can be used to minimize the read capacity being used by the queries? Global secondary indexes and use only those attributes which will be queried. This can help reduce the amount of read throughput used on the table.
+
+•	An application includes an Autoscaling Group. It has been determined that the best way to scale the group is based on the number of concurrent users. Create a custom metric for the number of concurrent users.
+
+•	You have an application storing objects in an Amazon S3 bucket. Due to massive popularity, these objects are frequently accessed from the S3 bucket. Which of the following can be used to reduce the latency of these objects? Use CloudFront, Increase the number of prefixes is wrong as although this will increase GET performance, this will not result in low latency for users.
+
+•	An application needs to make use of the SQS service for sending and receiving messages. The application takes 60 seconds to process a message. Assuming that a queue has been created with the default settings, First Call the ChangeMessageVisibility API and increase the timeout.
+
+•	In a DynamoDB table. There is now a requirement to ensure that all changes to the items in the table are recorded and stored in a MySQL database. Which of the following would ideally be one of the implementation steps? DynamoDB Streams captures a time-ordered sequence of item-level modifications in any DynamoDB table and stores this information in a log for up to 24 hours. Applications can access this log and view the data items as they appeared before and after they were modified, in near real-time.
+
+•	If you are writing code that uses other resources, such as a graphics library for image processing, or you want to use the AWS CLI instead of the console, you need to first create the Lambda function deployment package, and then use the console or the CLI to upload the package.
+
+•	Sort Key should be RANGE and partition Key should be HASH.
+
+•	With In-place deployment, deployments can be performed only for Amazon EC2 instance and On-Premises compute platforms. For AWS Lambda functions or Amazon ECS applications, Blue/green deployment can be used.
+
+•	Amazon Cognito Sync is an AWS service and client library that enable cross-device syncing of application-related user data. You can use it to synchronize user profile data across mobile devices and web applications. The client libraries cache data locally so your app can read and write data regardless of device connectivity status. When the device is online, you can synchronize data, and if you set up push sync, notify other devices immediately that an update is available.
+
+•	When uploading the package for your AWS Lambda function, you are receiving the following error. CodeStorageExceededException
+
+Raise a call with AWS Support to raise the limit on storage. Reduce the size for your code.
+•	_X_AMZN_TRACE_ID: Contains the tracing header, which includes the sampling decision, trace ID, and parent segment ID. If Lambda receives a tracing header when your function is invoked, that header will be used to populate the _X_AMZN_TRACE_ID environment variable. If a tracing header was not received, Lambda will generate one for you.
+•	AWS_XRAY_CONTEXT_MISSING: The X-Ray SDK uses this variable to determine its behavior in the event that your function tries to record X-Ray data, but a tracing header is not available. Lambda sets this value to LOG_ERROR by default.
+•	AWS_XRAY_DAEMON_ADDRESS: This environment variable exposes the X-Ray daemon's address in the following format: IP_ADDRESS:PORT. You can use the X-Ray daemon's address to send trace data to the X-Ray daemon directly, without using the X-Ray SDK.
+
+•	Integration Type “Aws_Proxy” can be used for an API method to be integrated with the Lambda Function where incoming requests from the clients are passed as input to Lambda Function.
+•	AWS integration. There is a mapping between method request & integration request along with method response & integration response. This is not a suitable integration type for passing client requests to the Lambda function directly.
+•	the "http_proxy" integration allows clients to access backend HTTP endpoints. This is not a suitable integration type for passing client requests to the Lambda function directly.
+
+•	You have created a Lambda Function generating the error “ServiceException”. Which of the following is the best practice to handle this exception under AWS Step Functions? Use Lambda Retry code with only “ErrorEquals” string.
+
+•	Your team is developing a series of Lambda functions. You need to ensure that you analyze the invocations of the functions during the testing phase. cloudWatch, x-ray
+
+•	Cloudwatch events can be used to monitor the job progress of AWS Batch Service
+
+WHIZLAB TEST-FINAL
+
+•	Your mobile application includes a photo-sharing service that is expecting tens of thousands of users at launch. You will leverage Amazon Simple Storage Service (S3) to store the user Images, and you must decide how to authenticate and authorize your users for access to these images. You also need to manage the storage of these images. Which two of the following approaches should you use? Authenticate your users at the application level and use AWS Security Token Service (STS) to grant token-based authorization to S3. Use a key-based naming scheme comprised from the user IDs for all user objects in a single Amazon S3 bucket.
+
+•	You are developing an application that will use Kinesis Firehose to stream the records onto the Simple Storage Service. Your company policy mandates that all data needs to be encrypted at rest. How can you achieve this with Kinesis Firehose? Enable Encryption on the Kinesis Data Firehose. Ensure that Kinesis streams are used to transfer the data from the producers.
+•	You are developing an application that is working with a DynamoDB table. You need to create a query that has search criteria. Which of the following must be done to work with search queries? Specify a key condition expression in the query. Specify a partition key name and value in the equality condition.
+
+•	You are an API developer for a large manufacturing company. You have developed an API resource that adds new products to the distributor's inventory using a POST HTTP request. It includes an Origin header and accepts application/x-www-form-encoded as request content type. Which response header will allow access to this resource from another origin? Allow Header 
+
+
+
+WHIZLAB TEST-ADDITIONAL QUESTIONS
+
+
+•	You have exceeded your maximum allowed provisioned throughput for a table in DynamoDB. How to fix this problem? Implement DAX (DynamoDB Accelerator) as a cache solution to improve the performance of the tables. Distribute all the operations read and written across more distinct partition key values.
+
+•	Kinesis does not have this capability like SQS tracks the successful and failed messages, SQS will delete successful messages and redeliver failed messages after a visibility timeout. 
+
+•	Which of the next options could you use as MFA in Cognito? Google Authenticator, SMS text message with MFA code.
+
+•	How to send an email alert every time someone logged in the AWS console or AWS Cli with the Administrator Role. Create a new Trail in Cloudtrail and send all the events to a new Cloudwatch Log Group. Create a rule in Cloudwatch that triggers an SNS Alert if the event record of CloudTrail contains the ARN of the AdminRole.
+
+WHIZLAB TEST-API GATEWAY
+
+•	Need to release a new feature that will allow customers to book accommodation in real-time through their API. You have to deploy this new feature. How will you test the new API feature with minimal impact to customers? enabling canary release will allow the developer to route a % of the traffic to the new API in a random order ensuring no one customer is affected too long. Canary release is a part of a stage in the API Gateway console.
+
+•	Investigate a public API's latency problem in API Gateway. Upon investigation, you realize that all clients making requests to the API are invalidating the cache using the Cache-Control header, which has increased the latency of the API. How will you invalidate the API cache by reducing the latency of the API? because if authorized users invalidate the cache, the latency of the API can be reduced. If you don't impose an InvalidateCache policy (the Require check box in the console), any client can invalidate the API cache. If most or all of the clients invalidate the API cache, this could significantly increase the latency of your API.
+
+•	The application consists of three different levels of subscription Free, Premium and Enterprise, implemented using stages in API Gateway. The Free level allows developers to access stats up to 5 games per player, and premium and enterprise get full access to the database Your manager has asked you to limit the free level to 100 concurrent requests at any given point in time. How can this be achieved? Under usage plan for the stage change Burst to 100 and Rate to 100.
+
+
+
+UDEMY TEST -1
+
+•	For a new deployment, send only a certain portion of the traffic to the new Lambda version. In case the deployment goes wrong, the solution should also support the ability to roll back to a previous version of the Lambda function, with MIMINUM downtime for the application. Set up the application to use an alias that points to the current version. Deploy the new version of the code and configure the alias to send 10% of the users to this new version. If the deployment goes wrong, reset the alias to point all traffic to the current version. Alias can point to the function version, not another alias.
+
+•	You are working on creating an application using AWS Cloud Development Kit (CDK). Create the app from a template provided by AWS CDK -> Add code to the app to create resources within stacks -> Build the app (optional) -> Synthesize one or more stacks in the app -> Deploy stack(s) to your AWS account
+
+
+•	IAM policy needed to access AWS Billing and Cost Management for all users under the Finance department. But, the users are unable to see AWS Billing and Cost Management service in the AWS console. Reason for issue: You need to activate IAM user access to the Billing and Cost Management console for all the users who need access. By default, IAM users do not have access to the AWS Billing and Cost Management console
+
+•	Deploy an AWS Lambda function that requires significant CPU utilization reducing the average runtime of the function? Deploy the function with its memory allocation set to the maximum amount. You can increase or decrease the memory and CPU power allocated to your function using the Memory (MB) setting value between 128 MB and 10,240 MB in 1-MB increments. 
+
+Layers promote code sharing and separation of responsibilities so that you can iterate faster on writing business logic. Layers do not increase the computational capacity of Lambda.
+
+•	Characteristics of an Elastic Load Balancer: Separate public traffic from private traffic, Build a highly available system
+             Improve vertical scalability of the system - This is an incorrect statement.
+             Elastic Load Balancers can connect with Auto Scaling groups to provide 
+             horizontal scaling.
+
+•	A multi-national company has just moved to AWS Cloud and it has configured forecast-based AWS Budgets alerts for cost management. However, no alerts have been received even though the account and the budgets have been created almost three weeks ago. AWS requires approximately 5 weeks of usage data to generate budget forecasts.
+
+•	Move new development to the cloud using serverless technology. You decide to use the AWS Serverless Application Model (AWS SAM) and work with an AWS SAM template file to represent your serverless architecture. SAM supports the following resource types: AWS::Serverless::Api AWS::Serverless::Application AWS::Serverless::Function AWS::Serverless::HttpApi AWS::Serverless::LayerVersion AWS::Serverless::SimpleTable AWS::Serverless::StateMachine
+There is no resource named UserPool in the Serverless Application Model.
+
+•	Amazon Simple Queue Service (SQS) queues in a development environment. The queue along with all its contents has to be deleted after testing. Which SQS API should be used for this requirement? DeleteQueue - Deletes the queue specified by the QueueUrl, regardless of the queue's contents. When you delete a queue, any messages in the queue are no longer available.
+
+•	Which of the following security credentials can only be created by the AWS Account root user? CloudFront Key Pair
+
+•	Create an application that can be deployed across a fleet of EC2 instances. The configuration must allow for full control over the deployment steps using the blue-green deployment. CodeDeploy is a deployment service that automates application deployments to Amazon EC2 instances, on-premises instances, or serverless Lambda functions. AWS CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces software packages that are ready to deploy. The blue/green deployment type uses the blue/green deployment model controlled by CodeDeploy.
+
+CodePipeline automates the build, test, and deploy phases of your release process every time there is a code change. CodePipeline by itself cannot deploy applications.
+
+•	 Creates serverless solutions using AWS Lambda. Functions are invoked by clients via AWS API Gateway which anyone can access. The team lead would like to control access using a 3rd party authorization mechanism. Lambda Authorizer uses bearer token authentication strategies, such as OAuth or SAML.
+Signature Version 4 is the process to add authentication information to AWS requests sent by HTTP.
+
+•	To enable HTTPS connections for his web application deployed on the AWS Cloud, a developer is in the process of creating server certificate. Which AWS entities can be used to deploy SSL/TLS server certificates? ACM, IAM- IAM is used as a certificate manager only when you must support HTTPS connections in a Region that is not supported by ACM.
+
+•	Creating policies and attaching them to IAM identities. After creating necessary Identity-based policies, he is now creating Resource-based policies. Which is the only resource-based policy that the IAM service supports? Trust policy
+
+•	An e-commerce company has developed an API that is hosted on Amazon ECS. Variable traffic spikes on the application are causing order processing to take too long. The application processes orders using Amazon SQS queues. The ApproximateNumberOfMessagesVisible metric spikes at very high values throughout the day which triggers the CloudWatch alarm. Other ECS metrics for the API containers are well within limits. Use backlog per instance metric with target tracking scaling policy.  If you use a target tracking scaling policy based on a custom Amazon SQS queue metric, dynamic scaling can adjust to the demand curve of your application more effectively.
+
+•	KMS Encryption works KMS stores the CMK, and receives data from the clients, which it encrypts and sends back
+
+•	Which of the following MFA mechanisms is NOT for root user authentication? SMS text message-based MFA is available only for IAM users, you cannot use this type of MFA with the AWS account root user.
+
+•	 The AWS Cloud Development Kit (AWS CDK) is an open-source software development framework to define your cloud application resources using familiar programming languages Python, .Net and Javascript.
+
+•	AWS::AccountId returns the AWS account ID of the account in which the stack is being created.
+
+•	IAM Access Analyzer - AWS IAM Access Analyzer helps you identify the resources in your organization and accounts, such as Amazon S3 buckets or IAM roles, that are shared with an external entity. This lets you identify unintended access to your resources and data, which is a security risk.
+
+•	Correct regarding the CreateQueue API : Can’t change queue type after Created, visibility time 30 sec(default)
+
+•	A web application written in .NET which uses the AWS SDK. You need to implement an authentication mechanism that returns a JWT (JSON Web Token). Cognito user Pool The ID token is a JSON Web Token (JWT) that contains claims about the identity of the authenticated user such as name, email, and phone_number.
+
+•	After a test deployment in ElasticBeanstalk environment, a developer noticed that all accumulated Amazon EC2 burst balances were lost. The deployment was either run with immutable updates or in traffic splitting mode  as full set of new instance launched.
+
+•	Java application uses RDS for its main data storage and ElastiCache for user session storage. The application needs to be deployed using Elastic Beanstalk and every new deployment should allow the application servers to reuse the RDS database. On the other hand, user session data stored in ElastiCache can be re-created for every deployment. ElastiCache defined in .ebextensions/ Any resources created as part of your .ebextensions is part of your Elastic Beanstalk template and will get deleted if the environment is terminated. RDS database defined externally and referenced through environment variables 
+
+•	Access Advisor feature on IAM console- To help identify the unused roles, IAM reports the last-used timestamp that represents when a role was last used to make an AWS request.
+•	AWS Trusted Advisor - AWS Trusted Advisor is an online tool that provides you real-time guidance to help you provision your resources following AWS best practices on cost optimization, security, fault tolerance, service limits, and performance improvement.
+•	Amazon Inspector - Amazon Inspector is an automated security assessment service that helps improve the security and compliance of applications deployed on AWS. Amazon Inspector automatically assesses applications for exposure, vulnerabilities, and deviations from best practices.
+
+•	Exported Output Values in CloudFormation must have unique names within a single Region
+
+•	Which of the following policy types only limit permissions but cannot grant permissions AWS Organizations Service Control Policy (SCP), Permissions boundary
+
+
+UDEMY TEST -2
+
+•	Generate a report of the code builds for every week to report internally and to the client. This report consists of the number of code builds performed for a week, the percentage success and failure, and overall time spent on these builds by the team members. You also need to retrieve the CodeBuild logs for failed builds and analyze them in Athena. Enable S3 and CloudWatch Logs integration- These metrics include the number of total builds, failed builds, successful builds, and the duration of builds
+
+•	A business has their test environment built on Amazon EC2 configured on General purpose SSD volume. At which gp2 volume size will their test environment hit the max IOPS? Between a minimum of 100 IOPS (at 33.33 GiB and below) and a maximum of 16,000 IOPS (at 5,334 GiB and above), baseline performance scales linearly at 3 IOPS per GiB of volume size.
+
+•	A Task state ("Type": "Task") represents a single unit of work performed by a state machine. Resource field is a required parameter for Task state. A Wait state ("Type": "Wait") delays the state machine from continuing for a specified time. A Fail state ("Type": "Fail") stops the execution of the state machine and marks it as a failure unless it is caught by a Catch block. Because Fail states always exit the state machine, they have no Next field and don't require an End field.
+
+•	A new recruit is trying to configure what an Amazon EC2 should do when it interrupts a Spot Instance. Amazon EC2 should do one of the following when it interrupts a Spot Instance: Stop the Spot Instance, Hibernate the Spot Instance, Terminate the Spot Instance (default)
+
+•	AWS Lambda function that accesses DynamoDB. The Lambda function must do an upsert, that is, it must retrieve an item and update some of its attributes or create the item if it does not exist. dynamodb:UpdateItem, dynamodb:GetItem UpdateItem action of DynamoDB APIs, edits an existing item's attributes or adds a new item to the table if it does not already exist. You can put, delete, or add attribute values.
+
+•	One of your deployments failed and was rolled back by AWS CodeDeploy to the last known good application revision. During rollback which of the following instances did AWS CodeDeploy deploy first To the failed instances: AWS CodeDeploy rolls back deployments by redeploying a previously deployed revision of an application as a new deployment on the failed instances.
+
+•	Uploading video files near 500GB size causes the website to break in s3  use multi-part.
+ 
+•	DynamoDB to facilitate high-frequency trading where multiple trades can try and update an item at the same time. Which of the following actions would make sure that only the last updated value of any item is used in the application? Use ConsistentRead = true while doing GetItem operation for any item DynamoDB uses eventually consistent reads by default. Read operations (such as GetItem, Query, and Scan) provide a ConsistentRead parameter. If you set this parameter to true, DynamoDB uses strongly consistent reads during the operation.
+
+•	AWS database engines can be configured with IAM Database Authentication
+RDS MYSQL, POSTGRESQL
+
+•	You configure monitoring for EC2 instances using a launch configuration or template. Monitoring is enabled whenever an instance is launched, either basic monitoring (5-minute granularity) or detailed monitoring (1-minute granularity). AWS Management Console might have been used to create the launch configuration - By default, basic monitoring is enabled when you create a launch template or when you use the AWS Management Console to create a launch configuration. CLI, SDK – detailed monitoring by default.
+
+•	A developer is defining the signers that can create signed URLs for their Amazon CloudFront distributions. When you create a signer, the public key is with CloudFront and private key is used to sign a portion of URL - Each signer that you use to create CloudFront signed URLs or signed cookies must have a public–private key pair. When you use the root user to manage CloudFront key pairs, you can only have up to two active CloudFront key pairs per AWS account.
+
+
+•	The development team wants to ensure that this transfer is captured in the database such that the records for both users are either written successfully with the new gift vouchers or the status quo is maintained. Use the DynamoDB transactional read and write APIs on the table items as a single, all-or-nothing operation, Complete both operations on RDS MySQL in a single transaction block.
+
+•	Which metric below is NOT part of Target Tracking Scaling Policy? ApproximateNumberOfMessagesVisible
+Predefined Metrics: ASGAverageCPUUtilization, ASGAverageNetworkOut, ALBRequestCountPerTarget
+
+•	An Auto Scaling group has a maximum capacity of 3, a current capacity of 2, and a scaling policy that adds 3 instances. Amazon EC2 Auto Scaling adds only 1 instance to the group to prevent the group from exceeding its maximum size.
+
+•	There are no message limits for storing in SQS, but 'in-flight messages' do have limits. Make sure to delete messages after you have processed them. There can be a maximum of approximately 120,000 inflight messages (received from a queue by a consumer, but not yet deleted from the queue).
+
+•	BEST deployment option for the upcoming application version such that it maintains at least the FULL capacity of the application and MINIMAL impact of failed deployment? Immutable
+
+•	The application's serverless backend running via Lambda functions does not hit latency bottlenecks as a result of the traffic spike. Configure Application Auto Scaling to manage Lambda provisioned concurrency on a schedule. 
+
+It's true that Lambda is serverless, however, due to the surge in traffic the Lambda functions can still hit the concurrency limits. To ensure that a function can always reach a certain level of concurrency, you can configure the function with reserved concurrency. 
+
+•	Maintained in a CodeCommit repository, AWS CodeBuild, and AWS Elastic Beanstalk to automatically deploy your code every time there is a code change. However, the deployment to Elastic Beanstalk is taking a very long time due to resolving dependencies on all of your 100 target EC2 instances. Which of the following actions should you take to improve performance with limited code changes? Bundle the dependencies in the source code during the build stage of CodeBuild
+
+S3 can be used as a storage location for your source code, logs, and other artifacts that are created when you use Elastic Beanstalk. Dependencies are used during the process of building code, not while deploying to Beanstalk.
+
+•	When you purchase a Reserved Instance for a specific Availability Zone, it's referred to as a Zonal Reserved Instance. Zonal Reserved Instances provide capacity reservations as well as discounts.
+
+•	Which of the following represents a mechanism that CANNOT be used for authenticating with the API Gateway: AWS Security Token Service (STS) - is a web service that enables you to request temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users). However, STS is not supported by API Gateway.
+Lambda Authorizer, Standard AWS IAM roles and policies, Cognito User Pools
+
+•	you connected to your provisioned instances through SSH to issue configuration commands. Now, you would like a configuration mechanism that automatically applies settings for you. Include config files in .ebextensions/ at the root of your source code
+
+•	specifying parameters which of the following is not a valid Parameter type?
+DependentParameter 
+•	Valids: 
+AWS::EC2::KeyPair::KeyName, AWS::EC2::SecurityGroup::Id, AWS::EC2::Subnet::Id AWS::EC2::VPC::Id, List<AWS::EC2::VPC::Id>, List<AWS::EC2::SecurityGroup::Id>,  List<AWS::EC2::Subnet::Id>
+
+•	An AppSpec file must be a YAML-formatted file named appspec.yml and it must be placed in the root of the directory structure of an application's source code.
+
+•	Generate a public SSH key (.pub) file from the private SSH key (.pem) file. Set the AWS Region you wish to import to. Import the public SSH key into the new Region.
+
+•	You can run multiple instances concurrently, but can only receive the benefit of the Reserved Instance discount for a total of 3600 seconds per clock-hour; instance usage that exceeds 3600 seconds in a clock-hour is billed at the On-Demand rate.
+
+•	EC2 instances in AWS Account A. These instances need to access data on multiple S3 buckets in another AWS Account B. Create an IAM role with S3 access in Account B and set Account A as a trusted entity. Create another role (instance profile) in Account A and attach it to the EC2 instances in Account A and add an inline policy to this role to assume the role from Account B
+
+•	When you send HTTP requests to an AWS service - When you send HTTP requests to AWS, you sign the requests so that AWS can identify who sent them. You sign requests with your AWS access key, which consists of an access key ID and secret access key.
+
+
+•	With Amazon DynamoDB transactions, you can group multiple actions together and submit them as a single all-or-nothing TransactWriteItems or TransactGetItems operation.
+
+•	The maximum ratio of provisioned IOPS to requested volume size (in GiB) is 50:1. So, for a 200 GiB volume size, max IOPS possible is 200*50 = 10000 IOPS.
+
+•	to package the code and dependencies for the application-specific Lambda functions as container images to be hosted on Amazon Elastic Container Registry. To deploy a container image to Lambda, the container image must implement the Lambda Runtime API and You must create the Lambda function from the same account as the container registry in Amazon ECR
+
+Lambda currently supports only Linux-based container images. You can test the containers locally using the Lambda Runtime Interface Emulator.
+
+•	When ASG finds that an instance is unhealthy, it terminates that instance and launches a new one. 
+
+
+UDEMY TEST -3
+
+•	A mobile gaming company is experiencing heavy read traffic to its Amazon Relational Database Service (RDS) database that retrieves player’s scores and stats. The company is using RDS database instance type db.m5.12xlarge, which is not cost-effective for their budget. They would like to implement a strategy to deal with the high volume of read traffic, reduce latency, and also downsize the instance size to cut costs. Setup ElastiCache in front of RDS
+Adding read replicas would further add to the database costs and will not help in reducing latency when compared to a caching solution.
+•	You have an Auto Scaling group configured to a minimum capacity of 1 and a maximum capacity of 5, designed to launch EC2 instances across 3 Availability Zones. During a low utilization period, an entire Availability Zone went down and your application experienced downtime. What can you do to ensure that your application remains highly available? Increase the minimum instance capacity of the Auto Scaling Group to 2
+Enable RDS Multi-AZ - This configuration will make your database highly available. But for the current scenario, you will need to have more than 1 instance in separate availability zones to keep the application highly available.
+
+•	You have a workflow process that pulls code from AWS CodeCommit and deploys to EC2 instances associated with tag group ProdBuilders. You would like to configure the instances to archive no more than two application revisions to conserve disk space. CodeDeploy Agent archives revisions and log files on instances. The CodeDeploy agent cleans up these artifacts to conserve disk space. You can use the :max_revisions: option in the agent configuration file to specify the number of application revisions to the archive by entering any positive integer.
+
+
+•	Uses shared Amazon S3 buckets to upload files. Due to this shared access, objects in S3 buckets have different owners making it difficult to manage the objects. to automatically make the S3 bucket owner, also the owner of all objects in the bucket, irrespective of the AWS account used for uploading the objects. Use S3 Object Ownership to default bucket owner to be the owner of all objects in the bucket.
+
+S3 Object Ownership has two settings: 1. Object writer – The uploading account will own the object. 2. Bucket owner preferred – The bucket owner will own the object if the object is uploaded with the bucket-owner-full-control canned ACL. Without this setting and canned ACL, the object is uploaded and remains owned by the uploading account.
+
+•	EBS volumes support both in-flight encryption and encryption at rest using KMS.
+
+•	The total size of all environment variables shouldn't exceed 4 KB in lambda function. There is no limit on the number of variables.
+
+•	To encrypt a 111 GB object using AWS KMS: Make a GenerateDataKey API call that returns a plaintext key and an encrypted copy of a data key. Use a plaintext key to encrypt the data
+
+•	Your web application architecture consists of multiple Amazon EC2 instances running behind an Elastic Load Balancer with an Auto Scaling group having the desired capacity of 5 EC2 instances. You would like to integrate AWS CodeDeploy for automating application deployment. The deployment should re-route traffic from your application's original environment to the new environment. Opt for Blue/Green deployment (Lambda, ECS, EC2)
+
+Opt for In-place deployment - Under this deployment type, the application on each instance in the deployment group is stopped, the latest application revision is installed, and the new version of the application is started and validated.
+
+•	The marketing department is concerned that high volumes of orders might stress SQS leading to message failures. Amazon SQS is highly scalable and does not need any intervention to handle the expected high volumes. By definition, auto-scalable and do not need any configuration changes for auto-scaling.
+
+•	Which of the following services are not available as an HTTP API via Amazon API Gateway? AWS Web Application Firewall (AWS WAF)
+
+
+•	ECS instances terminated a container instance in Amazon Elastic Container Service (Amazon ECS). But the container instance continues to appear as a resource in the ECS cluster. How?
+You terminated the container instance while it was in STOPPED state, that lead to this synchronization issues - If you terminate a container instance while it is in the STOPPED state, that container instance isn't automatically removed from the cluster. You will need to deregister your container instance in the STOPPED state by using the Amazon ECS console or AWS Command Line Interface. Once deregistered, the container instance will no longer appear as a resource in your Amazon ECS cluster.
+
+•	A telecom service provider stores its critical customer data on Amazon Simple Storage Service (Amazon S3). Which of the following options can be used to control access to data stored on Amazon S3? Bucket policies, Identity and Access Management (IAM) policies, Query String Authentication, Access Control Lists (ACLs)
+
+•	Step Functions are based on the concepts of tasks and state machines. You define state machines using the JSON-based Amazon States Language. A state machine is defined by the states it contains and the relationships between them. States are elements in your state machine. Individual states can make decisions based on their input, perform actions, and pass output to other states. In this way, a state machine can orchestrate workflows.
+
+•	A digital marketing company has its website hosted on an Amazon S3 bucket A. The development team notices that the web fonts that are hosted on another S3 bucket B are not loading on the website. Configure CORS on the bucket B that is hosting the web fonts to allow Bucket A origin to make the requests
+
+•	Elastic Load Balancing (ELB) routes more traffic to one instance or Availability Zone than the others. Why ? Sticky sessions are enabled for the load balancer, Instances of a specific capacity type aren’t equally distributed across Availability Zones 
+•	With Application Load Balancers, cross-zone load balancing is always enabled.
+
+•	Need to send real-time alerts and notifications based on any updates from the backend services. The company wants to avoid implementing complex polling mechanisms for these notifications. Which of the following types of APIs supported by the Amazon API Gateway is the right fit?
+In a WebSocket API, the client and the server can both send messages to each other at any time. (chat app)
+
+•	A website is hosted on an Amazon S3 bucket and have used another Amazon S3 bucket for storing the rest of the assets like images, fonts, etc. Which technique/mechanism will help the hosted website access its assets without access/permission issues? S3 Cross-Origin Resource Sharing (CORS)
+•	S3 Transfer Acceleration is wrong because it is used for transfer data from s3 to client via edge location.
+
+•	Standard Workflows on AWS Step Functions are suitable for long-running, durable, and auditable workflows that can also support any human approval steps, You should use Express Workflows for workloads with high event rates and short duration
+Express Workflows have a maximum duration of five minutes and Standard workflows have a maximum duration of one year not 6 months.
+
+•	If you have created an organization in AWS Organizations, you can also create a trail that will log all events for all AWS accounts in that organization. This is referred to as an organization trail. By default, CloudTrail tracks only bucket-level actions. To track object-level actions, you need to enable Amazon S3 data events, 
+•	Member accounts will be able to see the organization trail, but cannot modify or delete it 
+AWS offers Organization Trail for easy management and monitoring.
+
+•	To enable detailed monitoring of the Amazon EC2 instances using AWS CLI 
+aws ec2 monitor-instances --instance-ids <id>
+
+•	Monthly database backups must be retained for the duration of the contract for compliance purposes. Currently, the limit on backup retention for automated backups, on Amazon Relational Database Service (RDS), does not meet your requirements. Create a cron event in CloudWatch, which triggers an AWS Lambda function that triggers the database snapshot. CloudWatch Events with Lambda is the simplest of all solutions. To do this, create a CloudWatch Rule and select “Schedule” as the Event Source. 
+
+•	Your application is deployed automatically using AWS Elastic Beanstalk. Your YAML configuration files are stored in the folder .ebextensions and new files are added or updated often. The DevOps team does not want to re-deploy the application every time there are configuration changes, instead, they would rather manage configuration externally, securely, and have it load dynamically into the application at runtime. Use SSM Parameter Store
+
+•	Static data assets stored on Amazon S3 buckets. Each service line of the firm has its own AWS account. the Finance department needs to give access to their S3 bucket's data to the Human Resources department. Which of the below options is NOT feasible for cross-account access of S3 bucket objects? 
+Use IAM roles and resource-based policies delegate access across accounts within different partitions via programmatic access only
+IAM roles and resource-based policies delegate access across accounts only within a single partition. you have an account in US West (N. California) in the standard aws partition. You also have an account in China (Beijing) in the aws-cn partition. You can't use an Amazon S3 resource-based policy in your account in China (Beijing) to allow access for users in your standard AWS account.
+
+
+•	An organization is moving its on-premises resources to the cloud. Source code will be moved to AWS CodeCommit and AWS CodeBuild will be used for compiling the source code using Apache Maven as a build tool. The organization wants the build environment should allow for scaling and running builds in parallel. CodeBuild scales automatically, the organization does not have to do anything for scaling or for parallel builds 
+
+•	When an asynchronous invocation event exceeds the maximum age or fails all retry attempts, Lambda discards it. Or sends it to dead-letter queue if you have configured one.
+
+•	Amazon S3 Replication (CRR and SRR) is configured at the S3 bucket level, a shared prefix level, or an object level using S3 object tags.
+
+•	To manage large Amazon Simple Queue Service (Amazon SQS) messages, you can use Amazon Simple Storage Service (Amazon S3) and the Amazon SQS Extended Client Library for Java. This is especially useful for storing and consuming messages up to 2 GB.
+
+•	A new IAM user that has s3:putObject permission to write to an S3 bucket. This S3 bucket uses server-side encryption with AWS KMS managed keys (SSE-KMS) as the default encryption. Using the access key ID and the secret access key of the IAM user, the application received an access denied error when calling the PutObject API. Correct the policy of the IAM user to allow the kms:GenerateDataKey action
+
+•	The engineering managers would like to actively troubleshoot any failures in the Lambda functions. The developers should insert logging statements in the Lambda function code which are then available via CloudWatch logs.
+
+•	Use ElastiCache to improve latency and throughput for read-heavy application workloads, Use ElastiCache to improve performance of compute-intensive workloads
+•	Use Amazon Cognito to enable Multi-Factor Authentication (MFA) when users log-in
+
+UDEMY TEST -4
+
+•	Install and configure Kinesis Agent on each ec2 linux based instances
+You can install the agent on Linux-based server environments such as web servers, log servers, and database servers. After installing the agent, configure it by specifying the files to monitor and the stream for the data. After the agent is configured, it durably collects data from the files and reliably sends it to the stream.
+
+Use Kinesis Producer Library (KPL) to collect and ingest data from each EC2 instance - The KPL is an easy-to-use, highly configurable library that helps you write to a Kinesis data stream. It acts as an intermediary between your producer application code and the Kinesis Data Streams API actions. Not optimal solution here.
+
+•	A strategy in which an Auto Scaling group is used to perform a deployment.
+In-place Deployment -You can use a load balancer so that each instance is deregistered during its deployment and then restored to service after the deployment is complete. And Blue/green Deployment
+
+•	You have created a CloudFormation template in YAML that uses an AWS Lambda function to pull HTML files from GitHub and place them into an Amazon Simple Storage Service (S3) bucket that you specify. AWS CLI commands can you use to upload AWS Lambda functions and AWS CloudFormation templates to AWS
+cloudformation package and cloudformation deploy
+cloudformation zip is maded-up command doesn’t exists.
+
+•	file uploads must be saved and then made available to all instances in an Auto Scaling group. Use Amazon S3 and make code changes in the application so all uploads are put on S3 You can use S3 PutObject API from the application to upload the objects in a single bucket, which is then accessible from all instances.
+
+•	All the nodes in a Redis cluster (cluster mode enabled or cluster mode disabled) must reside in the same region.
+While using Redis with cluster mode enabled, there are some limitations:
+o	You cannot manually promote any of the replica nodes to primary.
+o	Multi-AZ is required.
+o	You can only change the structure of a cluster, the node type, and the number of nodes by restoring from a backup.
+
+•	In ALB, When the target type is IP, you can specify IP addresses from specific CIDR blocks only. You can't specify publicly routable IP addresses.
+you specify targets using an instance ID, traffic is routed to instances using the primary private IP address specified in the primary network interface for the instance.
+If you specify targets using IP addresses, you can route traffic to an instance using any private IP address from one or more network interfaces. This enables multiple applications on an instance to use the same port.
+
+•	Configured CloudTrail for all the Amazon S3 buckets used in a project. The project manager owns all the S3 buckets used in the project. However, the manager noticed that he did not receive any object-level API access logs when the data was read by another AWS account. 
+The bucket owner also needs to be object owner to get the object access logs -If the bucket owner is also the object owner, the bucket owner gets the object access logs. Otherwise, the bucket owner must get permissions, through the object ACL, for the same object API to get the same object-access API logs.
+
+•	An Amazon Simple Queue Service (SQS) has to be configured between two AWS accounts for shared access to the queue. AWS account A has the SQS queue in its account and AWS account B has to be given access to this queue.
+The account A administrator creates an IAM role and attaches a permissions policy
+The account A administrator attaches a trust policy to the role that identifies account B as the principal who can assume the role
+The account B administrator delegates the permission to assume the role to any users in account B.
+
+•	Network ACL and a Security Group for the load balancer and Amazon EC2 instances to allow inbound traffic on port 80. However, users are still unable to connect to your website after launch. Add a rule to the Network ACLs to allow outbound traffic on ports 1024 - 65535
+
+•	To export a stack's output value, use the Export field in the Output section of the stack's template. To import those values, use the Fn::ImportValue function in the template for the other stacks.
+
+•	The application makes use of Scan operations to return several items from a 25 GB table. There is no possibility of creating indexes to retrieve these items predictably. Developers are trying to get these specific rows from DynamoDB as fast as possible.
+Use parallel scans else we would have used query but they said no possibility of creating indexes
+
+•	all functions code should be monitored for error rates with the possibility of creating alarms on top of them. CloudWatch Metrics CloudWatch Alarms
+X-Ray cannot be used to capture metrics and set up alarms as per the given use-case, so this option is incorrect.
+
+•	Log group data is always encrypted in CloudWatch Logs. You can optionally use AWS AWS Key Management Service for this encryption. If you do, the encryption is done using an AWS KMS (AWS KMS) customer master key (CMK). Encryption using AWS KMS is enabled at the log group level, by associating a CMK with a log group, either when you create the log group or after it exists. Use the AWS CLI associate-kms-key command and specify the KMS key ARN
+
+•	Downloading dependencies is a critical phase in the AWS CodeBuild process. These dependent files can range in size from a few KBs to multiple MBs. Because most of the dependent files do not change frequently between builds, you can noticeably reduce your build time by caching dependencies in S3.
+
+Ship all the dependencies as part of the source code - This is not a good practice as doing this will increase your build time. If your dependencies are not changing then its best to cache them.
+
+
+•	The company has configured automatic rollbacks while deploying a new version of its flagship application to Amazon EC2. What occurs if the deployment of the new version fails?
+A new deployment of the last known working version of the application is deployed with a new deployment ID
+
+•	To roll back an application to a previous revision, you just need to deploy that revision. AWS CodeDeploy keeps track of the files that were copied for the current revision and removes them before starting a new deployment, so there is no difference between redeploy and rollback. However, you need to make sure that the previous revisions are available for rollback.
+
+•	Amazon S3 server-side encryption(SSE-S3) uses one of the strongest block ciphers available, 256-bit Advanced Encryption Standard (AES-256), to encrypt your data.
+
+•	The Amazon CloudWatch Monitoring Scripts for Amazon Elastic Compute Cloud (Amazon EC2) Linux-based instances demonstrate how to produce and consume Amazon CloudWatch custom metrics. These Perl scripts comprise a fully functional example that reports memory, swap, and disk space utilization metrics for a Linux instance. 
+
+•	The encryption keys need to be managed by an in-house security team but the key itself is stored on AWS. Use client-side encryption with an AWS KMS managed customer master key (CMK)
+
+•	Encoded authorization failure message: AWS STS decode-authorization-message
+
+•	Data in AWS CodeCommit repositories is encrypted in transit and at rest. When data is pushed into an AWS CodeCommit repository (for example, by calling git push), AWS CodeCommit encrypts the received data as it is stored in the repository.
+
+•	A company wants to add geospatial capabilities to the cache layer, along with query capabilities and an ability to horizontally scale. The company uses Amazon RDS as the database tier. Leverage the capabilities offered by ElastiCache for Redis with cluster mode enabled
+•	which of the following encryption mechanisms will a request get rejected if the connection is not using HTTPS – SSE-C (Client key is coming so, it should be in HTTPS)
+
+
+UDEMY TEST -5
+
+
+•	The company uses RDS MySQL as the database. The development team wants an urgent solution to this issue where the rapidly increasing workload might exceed the available database storage. it requires minimum development effort to address this requirement
+If your workload is unpredictable, you can enable storage autoscaling for an Amazon RDS DB instance. With storage autoscaling enabled, when Amazon RDS detects that you are running out of free database space it automatically scales up your storage.
+
+Aurora offers automatic storage scaling, this option is ruled out since it involves significant systems administration effort to migrate from RDS MySQL to Aurora. It is much easier to just enable storage auto-scaling for RDS MySQL.
+
+•	Your project's root directory includes the buildspec.yml file to run build commands and would like your build artifacts to be automatically encrypted at the end.
+For AWS CodeBuild to encrypt its build output artifacts, it needs access to an AWS KMS customer master key (CMK). By default, AWS CodeBuild uses the AWS-managed CMK for Amazon S3 in your AWS account.
+
+•	AWS DynamoDB table that was provisioned with read-capacity units (RCU’s) that are evenly shared across four partitions. One of those partitions is receiving more traffic than the other partitions, causing hot partition issues.
+Amazon DynamoDB Accelerator (DAX) is a fully managed, highly available, in-memory cache for DynamoDB that delivers up to a 10x performance improvement: from milliseconds to microseconds: even at millions of requests per second.
+
+ElastiCache can cache the results from anything but you will need to modify your code to check the cache before querying the main query store. As the given use-case mandates minimal effort, so this option is not correct.
+
+•	The API stores the data payload in DynamoDB and the static content is served through S3. Upon analyzing the usage pattern, it's found that 80% of the read requests are shared across all users. how can you improve the application performance while optimizing the cost with the least development effort?
+Enable DynamoDB Accelerator (DAX) for DynamoDB and CloudFront for S3
+
+ElastiCache for Redis is a great choice for real-time transactional and analytical processing use cases such as caching, chat/messaging, gaming leaderboards, geospatial, machine learning, media streaming, queues, real-time analytics, and session store. Not here.
+
+•	CLI options will allow you to retrieve a subset of the attributes coming from a DynamoDB scan? A projection expression is a string that identifies the attributes you want. To retrieve a single attribute, specify its name. For multiple attributes, the names must be comma-separated.
+
+
+o	--filter-expression - If you need to further refine the Query results, you can optionally provide a filter expression. A filter expression determines which items within the Query results should be returned to you. 
+o	--page-size - You can use the --page-size option to specify that the AWS CLI requests a smaller number of items from each call to the AWS service. 
+o	--max-items - To include fewer items at a time in the AWS CLI output, use the --max-items option
+
+•	A public DNS service on an EC2 instance where the DNS name is pointing to the IP address of the instance. You wish to upgrade your DNS service but would like to do it without any downtime.
+Route 53 is a DNS managed by AWS, but nothing prevents you from running your own DNS (it's just a software) on an EC2 instance. The trick of this question is that it's about EC2, running some software that needs a fixed IP, and not about Route 53 at all. DNS services are identified by a public IP, so you need to use Elastic IP.
+•	Most of the workflow is read based, but when a blog is updated, you would like to ensure that the latest data is served to the users (no stale data). The Developer has already suggested using ElastiCache to cope with the read load but has asked you to implement a caching strategy that complies with the requirements of the site.
+The write-through strategy adds data or updates data in the cache whenever data is written to the database. In a Write Through strategy, any new blog or update to the blog will be written to both the database layer and the caching layer, thus ensuring that the latest data is always served from the cache.
+
+Lazy Loading is a caching strategy that loads data into the cache only when necessary. 
+
+•	You would like to paginate the results of an S3 List to show 100 results per page to your users and minimize the number of API calls that you will use.
+--max-items, --starting-token
+
+"--page-size" - You can use the --page-size option to specify that the AWS CLI requests a smaller number of items from each call to the AWS service. The CLI still retrieves the full list but performs a larger number of service API calls in the background and retrieves a smaller number of items with each call.
+"--limit" - This is a made-up option and has been added as a distractor.
+
+
+•	Collecting AWS X-Ray traces across multiple applications and you would now like to index your XRay traces to search and filter through them efficiently
+Annotations are simple key-value pairs that are indexed for use with filter expressions. Use annotations to record data that you want to use to group traces in the console, or when calling the GetTraceSummaries API. X-Ray indexes up to 50 annotations per trace
+
+•	A developer has created a new Application Load Balancer but has not registered any targets with the target groups. The Load Balancer generates the HTTP 503: Service unavailable error when the target groups for the load balancer have no registered targets.
+
+•	Host a static HTML5 website on the cloud and be able to access it via domain www.mycompany.com. You have created a bucket in Amazon Simple Storage Service (S3), enabled website hosting, and set the index.html as the default page. Finally, you create an Alias record in Amazon Route 53 that points to the S3 website endpoint of your S3 bucket. When you test the domain www.mycompany.com you get the following error: 'HTTP response code 403 (Access Denied)'. What can you do to resolve this error?
+Bucket policy is an access policy option available for you to grant permission to your Amazon S3 resources. It uses JSON-based access policy language. If you want to configure an existing bucket as a static website that has public access, you must edit block public access settings for that bucket
+
+•	which of the following would you identify as the correct order of execution to successfully deploy the application?
+Develop the SAM template locally => upload the template to S3 => deploy your application to the cloud
+
+•	The user data sits in RDS and it has been recommended by your Developer to use ElastiCache as a caching layer to improve the read performance. The whole dataset of users cannot sit in ElastiCache without incurring tremendous costs and therefore you would like to cache only the most often requested users profiles there. As your website is high traffic, it is accepted to have stale data for users for a while, as long as the stale data is less than a minute old.
+
+Use a Lazy Loading strategy with TTL
+Lazy loading is a caching strategy that loads data into the cache only when necessary. 
+
+•	CodePipeline to automate its release pipelines. The development team wants to write a Lambda function that will send notifications for state changes within the pipeline.
+Amazon CloudWatch Events delivers a near real-time stream of system events that describe changes in Amazon Web Services (AWS) resources. Not cloudwatch alarms
+
+•	Run the X-Ray daemon for your Docker containers deployed using AWS Fargate. 
+Deploy the X-Ray daemon agent as a sidecar container
+Provide the correct IAM task role to the X-Ray container For Fargate, we can only provide IAM roles to tasks,
+
+Deploy the X-Ray daemon agent as a daemon set on ECS - As explained above, since we are using AWS Fargate, we do not have control over the underlying EC2 instance and thus we can't run an X-Ray agent container as a daemon set.
+
+•	Implement appropriate caching strategy on Amazon ElastiCache to withstand traffic spikes on the website during the sale. A key requirement is to facilitate consistent updates to the product prices and product description, so that the cache never goes out of sync with the backend.
+Use a caching strategy to write to the backend first and then invalidate the cache
+
+Use a caching strategy to update the cache and the backend at the same time - The cache and the backend cannot be updated at the same time via a single atomic operation as these are two separate systems. Therefore this option is incorrect.
+
+•	A data analytics company ingests a large number of messages and stores them in an RDS database using Lambda. Because of the increased payload size, it is taking more than 15 minutes to process each message.
+
+Provision EC2 instances in an Auto Scaling group to poll the messages from an SQS queue- As each message takes more than 15 minutes to process, therefore the development team cannot use Lambda for message processing. To build a scalable solution, the EC2 instances must be provisioning via an Auto Scaling group to handle variations in the message processing workload.
+
+•	The objects in the buckets are encrypted at the server-side but need more flexibility with access control, auditing, rotation, and deletion of keys. SSE-KMS
+
+•	A company ingests real-time data into its on-premises data center and subsequently a daily data feed is compressed into a single file and uploaded on Amazon S3 for backup. The typical compressed file size is around 2 GB.
+Upload the compressed file using multipart upload with S3 transfer acceleration Amazon S3 Transfer Acceleration enables fast, easy, and secure transfers of files over long distances between your client and an S3 bucket. 
+
+•	You are using AWS SQS FIFO queues to get the ordering of messages on a per user_id basis. which message parameter should you set the value of user_id to guarantee the ordering?
+MessageGroupId - The message group ID is the tag that specifies that a message belongs to a specific message group. Messages that belong to the same message group are always processed one by one, in a strict order relative to the message group
+
+•	Upload all the code as a zip to S3 and refer the object in AWS::Lambda::Func block
+Write the AWS Lambda code inline in CloudFormation in  the AWS::Lambda::Function block as long as there are no third-party dependencies
+
+•	The GSI is throttling so you need to provision more RCU and WCU to the GSI
+The LSI is throttling so you need to provision more RCU and WCU to the LSI -
+LSI use the RCU and WCU of the main table, so you can't provision more RCU and WCU to the LSI.
+
+•	To update your AWS Elastic Beanstalk environment to use HTTPS, you need to configure an HTTPS listener for the load balancer in your environment. Two types of load balancers support an HTTPS listener: Classic Load Balancer and Application Load Balancer.
+Example .ebextensions/securelistener-alb.config
+
+•	Elastic Beanstalk environment to expose an HTTPS endpoint and an HTTP endpoint. The HTTPS endpoint should be used to get in-flight encryption between your clients and your web servers, while the HTTP endpoint should only be used to redirect traffic to HTTPS and support URLs starting with http://.
+Assign an SSL certificate to the Load Balancer
+Open up port 80 & port 443
+Configure your EC2 instances to redirect HTTP traffic to HTTPS
+
+•	Configure the CloudWatch agent on the on-premises server by using IAM user credentials with permissions for CloudWatch
+To enable the CloudWatch agent to send data from an on-premises server, you must specify the access key and secret key of the IAM user that you created earlier.
+
+
+UDEMY TEST -6
+
+•	The developers are using DynamoDB to perform operations such as GetItem but are limited in knowledge. They would like to be more efficient with retrieving some attributes rather than all. Specify a ProjectionExpression
+
+•	The environment consists of few Amazon EC2 instances, an Auto Scaling Group (ASG), and an Elastic Load Balancer. Even after the Load Balancer marked an EC2 instance as unhealthy, the ASG has not replaced it with a healthy instance.
+
+The health check type of your instance's Auto Scaling group, must be changed from EC2 to ELB by using a configuration file. By default, the health check configuration of your Auto Scaling group is set as an EC2 type that performs a status check of EC2 instances. To automate the replacement of unhealthy EC2 instances, you must change the health check type of your instance's Auto Scaling group from EC2 to ELB by using a configuration file.
+
+
+•	A company is looking at storing their less frequently accessed files on AWS that can be concurrently accessed by hundreds of EC2 instances. The company needs the most cost-effective file storage service that provides immediate access to data whenever needed.
+Amazon Elastic File System (EFS) Standard–IA storage class
+
+Amazon S3 is an object storage service. Amazon S3 makes data available through an Internet API that can be accessed anywhere. It is not a file storage service, as is needed in the use case.
+
+•	A development team has noticed that one of the EC2 instances has been wrongly configured with the 'DeleteOnTermination' attribute set to True for its root EBS volume. Instance is still running and we have to update
+Set the DeleteOnTermination attribute to False using the command line - If the instance is already running, you can set DeleteOnTermination to False using the command line.
+
+You can set the DeleteOnTermination attribute to False when you launch a new instance. It is not possible to update this attribute of a running instance from the AWS console.
+
+•	Implement authentication for new RESTful API service that uses Amazon API Gateway. To authenticate the calls, each request must include HTTP headers with a client ID and user ID. These credentials must be compared to the authentication data in a DynamoDB table. 
+Develop an AWS Lambda authorizer that references the DynamoDB authentication table - A Lambda authorizer is an API Gateway feature that uses a Lambda function to control access to your API.
+
+Alternative to using IAM roles and policies or Lambda authorizers (formerly known as custom authorizers), you can use an Amazon Cognito user pool to control who can access your API in Amazon API Gateway.
+
+
+•	Pull Docker images from the ECR repository called demo so you can start running local tests against the latest application version.
+
+$(aws ecr get-login --no-include-email)
+docker pull 1234567890.dkr.ecr.eu-west-1.amazonaws.com/demo:latest
+
+•	A company uses microservices-based infrastructure to process the API calls from clients, perform request filtering and cache requests using the AWS API Gateway. Users report receiving 501 error code and you have been contacted to find out what is failing.
+Use X-Ray service - AWS X-Ray helps developers analyze and debug production, distributed applications, such as those built using a microservices architecture. 
+
+•	Run a serverless data store service on two docker containers that share resources. Which of the following ECS configurations can be used to facilitate this use-case?
+Put the two containers into a single task definition using a Fargate Launch Type not EC2 launch Type because asking for serverless.
+
+•	In AWS CodeBuild, the build fails and the developer needs to quickly troubleshoot the issue to see which commands or settings located in the BuildSpec file are causing an issue.
+Run AWS CodeBuild locally using CodeBuild Agent test the integrity and contents of a buildspec file locally.
+You cannot freeze the CodeBuild process but you can stop it.
+
+•	The key characteristics of the strongly consistent data model followed by S3?
+If you delete a bucket and immediately list all buckets, the deleted bucket might still appear in the list
+A process deletes an existing object and immediately tries to read it. Amazon S3 will not return any data as the object has been deleted
+
+•	The template consists of an EC2 instance creation and one RDS resource. Once your resources are created you would like to output the connection endpoint for the RDS database. !GetAtt (!GetAtt myELB.DNSName)
+
+•	The data management of the AWS Kinesis streams at your company. The security team has mandated stricter security requirements by leveraging mechanisms available with the Kinesis Data Streams service that won't require code changes on your end.
+KMS encryption for data at rest
+Encryption in flight with HTTPS endpoint the HTTPS protocol ensures that data inflight is encrypted as well.
+
+•	An investment firm wants to continuously generate time-series analytics of the stocks being purchased by its customers. The firm wants to build a live leaderboard with real-time analytics for these in-demand stocks. A fully managed solution to address this use-case?
+Use Kinesis Firehose to ingest data and Kinesis Data Analytics to generate leaderboard scores and time-series analytics
+
+Kinesis Data Streams needs manual provisioning of shards and a planning of shard requirements. The use-case clearly states that the company wants a fully managed solution as soon as possible with minimal effort. Kinesis Firehose is fully managed and requires no user input in provisioning of resources.
+
+•	A video streaming application uses Amazon CloudFront for its data distribution. The development team has decided to use CloudFront with origin failover for high availability. Which of the following options are correct while configuring CloudFront with Origin Groups?
+
+CloudFront routes all incoming requests to the primary origin, even when a previous request failed over to the secondary origin
+CloudFront only sends requests to the secondary origin after a request to the primary origin fails.
+
+CloudFront fails over to the secondary origin only when the HTTP method of the viewer request is GET, HEAD or OPTIONS CloudFront does not failover when the viewer sends a different HTTP method (for example POST, PUT, and so on).
+
+•	As new application versions are ready for production you ensure that the application gets deployed to different sets of EC2 instances at different times allowing for a smooth transition. Using AWS CodeDeploy, which of the following options will allow you to do this? CodeDeploy Deployment Groups
+
+•	A developer while working on Amazon EC2 instances, realized that an instance was not needed and had shut it down. But another instance of the same type automatically got launched in the account.
+Instance might be part of Auto Scaling Group and hence re-launched similar instance
+
+•	A photo-sharing application manages its EC2 server fleet running behind an Application Load Balancer and the traffic is fronted by a CloudFront distribution. The development team wants to decouple the user authentication process for the application so that the application servers can just focus on the business logic.
+
+Use Cognito Authentication via Cognito User Pools for your Application Load Balancer
+ALB can be used to securely authenticate users for accessing your applications. This enables you to offload the work of authenticating users to your load balancer so that your applications can focus on their business logic.
+You cannot directly integrate Cognito User Pools with CloudFront distribution as you have to create a separate Lambda@Edge function to accomplish the authentication via Cognito User Pools.
+
+
+•	Example of a query string condition that the developer can use on AWS CLI
+
+"Field": "query-string",
+      "QueryStringConfig": {
+          "Values": [
+            {
+                "Key": "version",
+                "Value": "v1"
+            },
+            {
+                "Value": "*example*"
+            }
+          ]
+      }
+
+
+•	An e-commerce application writes log files into Amazon S3. The application also reads these log files in parallel on a near real-time basis. The development team wants to address any data discrepancies that might arise when the application overwrites an existing log file and then tries to read that specific log file. Which of the following options BEST describes the capabilities of Amazon S3 relevant to this scenario?
+A process replaces an existing object and immediately tries to read it. Amazon S3 always returns the latest version of the object
+
+•	A new recruit is trying to understand the nuances of EC2 Auto Scaling. Can you identify and explain the correct statements about Auto Scaling to the new recruit? 
+
+Amazon EC2 Auto Scaling cannot add a volume to an existing instance if the existing volume is approaching capacity. 
+Amazon EC2 Auto Scaling works with both Application Load Balancers and Network Load Balancers.
+When you create an Auto Scaling group from an existing instance, it does not create a new AMI.
+
+•	Programmatically use their services to send and receive text messages. The initial platform did not have a scalable architecture as all components were hosted on one server and should be redesigned for high availability and scalability.
+ALB + ECS, API Gateway + Lambda
+
+•	The development team at a retail organization wants to allow a Lambda function in its AWS Account A to access a DynamoDB table in another AWS Account B.
+Create an IAM role in account B with access to DynamoDB. Modify the trust policy of the role in Account B to allow the execution role of Lambda to assume this role. Update the Lambda function code to add the AssumeRole API call
+
+•	The encryption key must be stored in a custom application running on-premises. The company wants to offload the data storage as well as the encryption process to Amazon S3 but continue to use the existing encryption keys. Which of the following S3 encryption options allows the company to leverage Amazon S3 for storing data with given constraints?
+Server-Side Encryption with Customer-Provided Keys (SSE-C)
+
+•	A multi-national company maintains separate AWS accounts for different verticals in their organization. The project manager of a team wants to migrate the Elastic Beanstalk environment from Team A's AWS account into Team B's AWS account. As a Developer, you have been roped in to help him in this process.
+Create a saved configuration in Team A's account and download it to your local machine. Make the account-specific parameter changes and upload to the S3 bucket in Team B's account. From Elastic Beanstalk console, create an application from 'Saved Configurations.
+
+•	The X-Forwarded-Proto request header helps you identify the protocol (HTTP or HTTPS) that a client used to connect to your load balancer.
+
+•	ECS_ENABLE_TASK_IAM_ROLE
+This configuration item is used to enable IAM roles for tasks for containers with the bridge and default network modes.
+
